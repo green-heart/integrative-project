@@ -15,13 +15,13 @@ export class Posting {
     @Column ({length: 255})
     image: string
 
-    @Column({length: 255})
+    @Column ({length: 255})
     location: string
 
     @CreateDateColumn ()
     date: Date
 
-    @ManyToOne(() => Theme, (theme) => theme.posting, {
+    @ManyToOne (() => Theme, (theme) => theme.posting, {
         onDelete: 'CASCADE'
     })
     theme: Theme
