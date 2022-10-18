@@ -4,7 +4,7 @@ import { ThemeService } from "../service/theme.service";
 
 @Controller('/theme')
 export class ThemeController{
-    constructor ( private readonly themeService: ThemeService){}
+    constructor (private readonly themeService: ThemeService){}
 
     @Get()
     @HttpCode(HttpStatus.OK)
@@ -14,41 +14,31 @@ export class ThemeController{
 
     @Get('/:id')
     @HttpCode(HttpStatus.OK)
-    findbyId(
-        @Param ('id', ParseIntPipe)
-        id: number
-    ): Promise<Theme>{
+    findbyId (@Param ('id', ParseIntPipe) id: number): Promise<Theme> {
         return this.themeService.findById(id)
     }
 
     @Get('/classfication/:classfication')
     @HttpCode(HttpStatus.OK)
-    findByDescription(
-        @Param ('classfication')
-        classfication: string
-    ): Promise <Theme[]>{
-        return this.themeService.findByDescription(classfication);
+    findByDescription (@Param ('classfication') classfication: string): Promise <Theme[]> { 
+        return this.themeService.findByClassification(classfication);
     }
 
     @Post ()
     @HttpCode(HttpStatus.CREATED)
-    create(
-        @Body ()
-        theme: Theme
-    ):Promise<Theme>{
-        return this.themeService.create(theme)
+    create(@Body () theme: Theme): Promise<Theme> {
+        return this.themeService.create(theme);
     }
 
     @Put()
     @HttpCode(HttpStatus.OK)
-    update (@Body()theme: Theme):Promise<Theme>{
+    update (@Body () theme: Theme): Promise<Theme>{
         return this.themeService.update(theme);
     }
 
     @Delete('/:id')
-    @HttpCode(HttpStatus.NO_CONTENT)
-    delete(@Param('id', ParseIntPipe)id: number){
-        return this.themeService.delete(id);
+    @HttpCode (HttpStatus.NO_CONTENT)
+    delete (@Param ('id', ParseIntPipe) id: number){
+        return this.themeService.delete (id);
     }
-
 }
