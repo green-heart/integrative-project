@@ -1,35 +1,34 @@
 import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
+import { ThemeService } from "src/theme/service/theme.service";
 import { DeleteResult, Repository } from "typeorm";
 import { Posting } from "../entities/posting.entity";
 
 
 @Injectable ()
 export class PostingService {
-    themeReporsitory: any;
+    constructor(
+        @InjectRepository (Posting)
+        private postRepository: Repository<Posting>,
+        private themeService: ThemeService
+    ) { }
 
     async findById (id: number) : Promise<Posting> {
         let posting = await this.postRepository.findOne({
             where: {id}, relations: {}
-        })
-        
+        });
         if (!posting)
-            throw new HttpException('Post not found', HttpStatus.NOT_FOUND)
+            throw new HttpException('Post not found', HttpStatus.NOT_FOUND);
         return posting;
     }
     
-    constructor(
-        @InjectRepository (Posting)
-        private postRepository: Repository<Posting>
-    ) { }
-
     async findAll (): Promise <Posting []> {
         return await this.postRepository.find ();
     }
 
     async create (posting: Posting): Promise<Posting> {
         if (posting.theme) {
-            let theme = await this.themeReporsitory.findById(posting.theme.id)
+            let theme = await this.themeService.findById(posting.theme.id)
 
             if (!theme)
                 throw new HttpException('Theme not found', HttpStatus.NOT_FOUND)
@@ -44,7 +43,7 @@ export class PostingService {
             throw new HttpException('Post not found!', HttpStatus.NOT_FOUND)
 
         if (posting.theme) {
-            let theme = await this.themeReporsitory.findById(posting.theme.id)
+            let theme = await this.themeService.findById(posting.theme.id)
 
         if (!theme)
             throw new HttpException('Theme not found', HttpStatus.NOT_FOUND)
