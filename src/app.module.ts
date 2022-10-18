@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Posting } from './posting/entities/posting.entity';
 import { PostingModule } from './posting/posting.module';
 import { Theme } from './theme/entities/theme.entity';
+import { ThemeModule } from './theme/theme.module';
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ import { Theme } from './theme/entities/theme.entity';
       entities: [Posting, Theme],
       synchronize: true
     }),
-    PostingModule
+    PostingModule,
+    ThemeModule
    ],
   controllers: [],
   providers: [],
