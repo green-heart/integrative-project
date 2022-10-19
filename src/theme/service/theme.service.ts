@@ -18,6 +18,13 @@ export class ThemeService {
         })
     }
 
+/**
+ * @desc To find a theme by its id
+ * @param id identifier to find a theme
+ * @example
+ * find id(2) // The program will search the id theme 2 in its database
+ *
+ */
     async findById (id: number): Promise <Theme> {
         let theme = await this.themeRepository.findOne ({
             where: {id},
@@ -42,10 +49,24 @@ export class ThemeService {
         })
     }
 
+/**
+ * @desc Create a theme
+ * @param id will be auto_increment
+ * @example 
+ * create "Volunteer Works"// The "Volunteers Works " theme will be created
+ *  */       
     async create (theme: Theme): Promise <Theme> {
         return await this.themeRepository.save (theme);
     }
 
+/**
+ * @desc Update a theme
+ * @param id identifier to update a theme
+ * @throw HttpException if the 'Id' was not found to update
+ * @Example
+ * update(2) // the id theme(2) will be updated.
+ * 
+ */
     async update (theme: Theme): Promise <Theme> {
         let searchTheme: Theme = await this.findById (theme.id);
 
@@ -54,6 +75,14 @@ export class ThemeService {
         return await this.themeRepository.save (theme);   
     }
 
+/**
+ * @desc Delete a theme
+ * @param id identifier to delete a theme
+ * @throw HttpExcpetion if 'Id' was not found.
+ * @example
+ * delete(2) // The id theme(2) will be deleted
+ * 
+ *  */ 
     async delete (id: number): Promise <DeleteResult> {
         let searchTheme = await this.findById (id);
 
