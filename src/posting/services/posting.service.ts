@@ -10,7 +10,11 @@ export class PostingService {
         @InjectRepository (Posting)
         private postingRepository: Repository <Posting>) {}
     
-        
+    /**
+     * @desc To find everything posted
+     * @example
+     * http://localhost:4000/posting
+     */
     async findAll (): Promise <Posting []> {
         return await this.postingRepository.find ({
             relations: {theme: true}
