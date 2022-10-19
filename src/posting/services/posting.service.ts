@@ -33,6 +33,12 @@ export class PostingService {
         });
     }
 
+    /**
+     * @desc Create a post in database
+     * @param 'Put' a text, image, location and date (date is automatically inserted)
+     * @example
+     * "text": "ssss", "image": "url/image", "location": "your location"
+     */
     async create (posting: Posting): Promise <Posting> {
         return await this.postingRepository.save (posting)
     }
@@ -48,7 +54,6 @@ export class PostingService {
      /**
      * @desc Delete a post
      * @param id the identify to delete post
-     * @returns void
      * @throw HttpException if id not found
      * @example
      * delete(2) // the post 2 will be delete
