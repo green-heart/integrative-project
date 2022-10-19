@@ -43,6 +43,13 @@ export class PostingService {
         return await this.postingRepository.save (posting)
     }
 
+    /**
+     * @desc Updating a post from the database
+     * @param 'Put' a new text, image, location and date (date is automatically inserted)
+     * @throw HttpException if id not found
+     * @example
+     * "text": "New", "image": "Newurl/image", "location": "your new location", "themeId": "NewthemeId"
+     */
     async update (posting: Posting): Promise <Posting> {
         let searchPost: Posting = await this.findById (posting.id)
 
