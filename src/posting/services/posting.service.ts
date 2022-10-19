@@ -10,12 +10,18 @@ export class PostingService {
         @InjectRepository (Posting)
         private postingRepository: Repository <Posting>) {}
     
+        
     async findAll (): Promise <Posting []> {
         return await this.postingRepository.find ({
             relations: {theme: true}
         });
     }
 
+    /**
+     * @desc To find a post this by id
+     * @example
+     * http://localhost:4000/posting/(id)
+     */
     async findById (id: number) : Promise <Posting> {
         let posting = await this.postingRepository.findOne({
             where: {id}, 
@@ -26,6 +32,7 @@ export class PostingService {
         return posting;
     }
 
+    
     async findByText (text: string): Promise <Posting []> {
         return await this.postingRepository.find ({
             where: {text: ILike(`%${text}%`)},
