@@ -23,6 +23,7 @@ export class PostingService {
 
     /**
      * @desc To find a post this by id
+     * @throw HttpException if id not found
      * @example
      * http://localhost:4000/posting/(id)
      */
