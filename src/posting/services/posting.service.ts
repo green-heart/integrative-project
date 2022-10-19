@@ -45,6 +45,14 @@ export class PostingService {
         return await this.postingRepository.save (posting)
     }
 
+     /**
+     * @desc Delete a post
+     * @param id the identify to delete post
+     * @returns void
+     * @throw HttpException if id not found
+     * @example
+     * delete(2) // the post 2 will be delete
+     */
     async delete (id:number): Promise <DeleteResult> {
         let searchPost = await this.findById (id);
 
