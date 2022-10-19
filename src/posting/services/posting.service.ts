@@ -37,7 +37,7 @@ export class PostingService {
      * @desc Create a post in database
      * @param 'Put' a text, image, location and date (date is automatically inserted)
      * @example
-     * "text": "ssss", "image": "url/image", "location": "your location"
+     * "text": "ssss", "image": "url/image", "location": "your location", "themeId": "themeId"
      */
     async create (posting: Posting): Promise <Posting> {
         return await this.postingRepository.save (posting)
