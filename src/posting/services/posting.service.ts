@@ -10,12 +10,23 @@ export class PostingService {
         @InjectRepository (Posting)
         private postingRepository: Repository <Posting>) {}
     
+    /**
+     * @desc To find everything posted
+     * @example
+     * http://localhost:4000/posting
+     */
     async findAll (): Promise <Posting []> {
         return await this.postingRepository.find ({
             relations: {theme: true}
         });
     }
 
+    /**
+     * @desc To find a post this by id
+     * @throw HttpException if id not found
+     * @example
+     * http://localhost:4000/posting/(id)
+     */
     async findById (id: number) : Promise <Posting> {
         let posting = await this.postingRepository.findOne({
             where: {id}, 
@@ -26,6 +37,11 @@ export class PostingService {
         return posting;
     }
 
+    /**
+     * @desc To find a post this by id
+     * @example
+     * http://localhost:4000/posting/text/(text)
+     */
     async findByText (text: string): Promise <Posting []> {
         return await this.postingRepository.find ({
             where: {text: ILike(`%${text}%`)},
@@ -43,6 +59,13 @@ export class PostingService {
         return await this.postingRepository.save (posting)
     }
 
+    /**
+     * @desc Updating a post from the database
+     * @param 'Put' a new text, image, location and date (date is automatically inserted)
+     * @throw HttpException if id not found
+     * @example
+     * "text": "New", "image": "Newurl/image", "location": "your new location", "themeId": "NewthemeId"
+     */
     async update (posting: Posting): Promise <Posting> {
         let searchPost: Posting = await this.findById (posting.id)
 
