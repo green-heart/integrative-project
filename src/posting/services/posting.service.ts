@@ -28,13 +28,13 @@ export class PostingService {
      * http://localhost:4000/posting/(id)
      */
     async findById (id: number) : Promise <Posting> {
-        let posting = await this.postingRepository.findOne({
+        let searchPost = await this.postingRepository.findOne({
             where: {id}, 
             relations: {theme: true}
         });
-        if (!posting)
+        if (!searchPost)
             throw new HttpException ('Post not found', HttpStatus.NOT_FOUND);
-        return posting;
+        return searchPost;
     }
 
     /**
