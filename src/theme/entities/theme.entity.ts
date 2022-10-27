@@ -1,6 +1,6 @@
 import { Post } from "@nestjs/common/decorators";
 import { IsNotEmpty } from "class-validator";
-import { Posting } from "src/posting/entities/posting.entity";
+import { Posting } from "../../posting/entities/posting.entity";
 import { OneToMany } from "typeorm";
 import { Column } from "typeorm/decorator/columns/Column";
 import { PrimaryGeneratedColumn } from "typeorm/decorator/columns/PrimaryGeneratedColumn";
