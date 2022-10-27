@@ -9,18 +9,18 @@ import { Entity } from "typeorm/decorator/entity/Entity";
 @Entity({name: "tb_theme"})
 export class Theme {
 
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn ()
     id: number;
 
-    @IsNotEmpty()
-    @Column({length: 255, nullable: false})
+    @IsNotEmpty ()
+    @Column ({length: 255, nullable: false})
     classification: string
 
-    @IsNotEmpty()
-    @Column({length: 50, nullable: false})
+    @IsNotEmpty ()
+    @Column ({length: 50, nullable: false})
     types: string
 
-    @OneToMany(() => Posting, (posting) => posting.theme)
-    posting: Posting[];
+    @OneToMany (() => Posting, (posting) => posting.theme)
+    posting: Posting [];
 
 }

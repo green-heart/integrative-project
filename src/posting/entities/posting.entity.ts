@@ -9,19 +9,19 @@ export class Posting {
     id: number
 
     @IsNotEmpty ()
-    @Column ({length: 100, nullable: false})
+    @Column ({length: 1000, nullable: false})
     text: string
 
     @Column ({length: 255})
     image: string
 
-    @Column({length: 255})
+    @Column ({length: 255})
     location: string
 
     @CreateDateColumn ()
     date: Date
 
-    @ManyToOne(() => Theme, (theme) => theme.posting, {
+    @ManyToOne (() => Theme, (theme) => theme.posting, {
         onDelete: 'CASCADE'
     })
     theme: Theme
