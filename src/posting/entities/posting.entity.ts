@@ -1,6 +1,8 @@
-import { IsNotEmpty } from "class-validator";
-import { Theme } from "../../theme/entities/theme.entity";
 import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { IsNotEmpty } from "class-validator";
+
+import { Theme } from "../../theme/entities/theme.entity";
+import { User } from "../../users/entities/users.entity";
 
 @Entity ({name: "tb_posting"})
 export class Posting {
@@ -9,7 +11,7 @@ export class Posting {
     id: number
 
     @IsNotEmpty ()
-    @Column ({length: 1000, nullable: false})
+    @Column ({length: 100, nullable: false})
     text: string
 
     @Column ({length: 255})
@@ -25,4 +27,9 @@ export class Posting {
         onDelete: 'CASCADE'
     })
     theme: Theme
+    
+    @ManyToOne (() => User, (user) => user.posting, {
+        onDelete: 'CASCADE'
+    })
+    user: User
 }
