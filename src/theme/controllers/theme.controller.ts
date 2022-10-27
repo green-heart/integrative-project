@@ -9,7 +9,7 @@ import { ThemeService } from "../service/theme.service";
 export class ThemeController{
     constructor (private readonly themeService: ThemeService) { }
 
-    @Get ()
+    @Get ('/theme/all')
     @HttpCode (HttpStatus.OK)
     findAll (): Promise <Theme []> {
         return this.themeService.findAll();
@@ -27,13 +27,13 @@ export class ThemeController{
         return this.themeService.findByClassification (classfication);
     }
 
-    @Post ()
+    @Post ('/create')
     @HttpCode (HttpStatus.CREATED)
     create (@Body () theme: Theme): Promise <Theme> {
         return this.themeService.create (theme);
     }
 
-    @Put ()
+    @Put ('/put')
     @HttpCode (HttpStatus.OK)
     update (@Body () theme: Theme): Promise <Theme> {
         return this.themeService.update (theme);
