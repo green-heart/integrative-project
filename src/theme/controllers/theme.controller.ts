@@ -1,10 +1,10 @@
 import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPipe, Post, Put, UseGuards } from "@nestjs/common";
 
-import { LocalAuthGuard } from "../../auth/guard/local-auth.guard";
+import { JwtAuthGuard } from "../../auth/guard/jwt-auth.guard";
 import { Theme } from "../entities/theme.entity";
 import { ThemeService } from "../service/theme.service";
 
-@UseGuards (LocalAuthGuard)
+@UseGuards (JwtAuthGuard)
 @Controller ('/theme')
 export class ThemeController{
     constructor (private readonly themeService: ThemeService) { }
