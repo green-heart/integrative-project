@@ -8,6 +8,16 @@ import { Theme } from "../entities/theme.entity";
 
 @Injectable()
 export class ThemeService {
+   
+   
+   /**
+     * @desc Deletes a database theme
+     * @param id The theme identifier to be deleted.
+     * @returns Empty Content
+     * @Example 
+     * delete(2); // It is going to delete the id theme = 2
+     * delete(5); // It is going to delete the id theme = 5
+     */
     delete(id: number) {
         throw new Error("Method not implemented.");
     }
