@@ -29,9 +29,13 @@ export class AuthService {
     return null;
   }
 
-  async login (userLogin:any) {
-    const payload = {username: userLogin.username, sub: 'green_heart'};
+  async login (userLogin: any) {
 
-    return {user: userLogin.user, token: `Bearer ${this.jwtService.sign(payload)}`}; 
+    const payload = { username: userLogin.username, sub: "green_heart" };
+  
+    return {
+      username: userLogin.username,
+      token: `Bearer ${this.jwtService.sign (payload)}`,
+    };
   }
 }
