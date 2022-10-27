@@ -1,9 +1,12 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from './auth/auth.module';
 import { Posting } from './posting/entities/posting.entity';
 import { PostingModule } from './posting/posting.module';
 import { Theme } from './theme/entities/theme.entity';
 import { ThemeModule } from './theme/theme.module';
+import { User } from './users/entities/users.entity';
+import { UserModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -14,11 +17,13 @@ import { ThemeModule } from './theme/theme.module';
       username: 'root',
       password: 'root',
       database: 'db_green_heart',
-      entities: [Posting, Theme],
+      entities: [Posting, Theme, User],
       synchronize: true
     }),
     PostingModule,
-    ThemeModule
+    ThemeModule,
+    AuthModule,
+    UserModule
    ],
   controllers: [],
   providers: [],

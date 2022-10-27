@@ -1,13 +1,15 @@
-import { Body, Delete, Param, ParseIntPipe,Controller, Get, HttpCode, HttpStatus, Post, Put } from "@nestjs/common"
+import { Body, Delete, Param, ParseIntPipe,Controller, Get, HttpCode, HttpStatus, Post, Put, UseGuards } from "@nestjs/common"
 
+import { LocalAuthGuard } from "../../auth/guard/local-auth.guard";
 import { Posting } from "../entities/posting.entity";
 import { PostingService } from "../services/posting.service";
 
+@UseGuards (LocalAuthGuard)
 @Controller ("/posting")
 export class PostingController {
     constructor (private readonly postingService: PostingService) { }
 
-    @Get ()
+    @Get ('/all')
     @HttpCode (HttpStatus.OK)
     findAll (): Promise <Posting []> {
         return this.postingService.findAll ();
@@ -25,13 +27,13 @@ export class PostingController {
         return this.postingService.findByText (text)
     }
 
-    @Post()
+    @Post('/create')
     @HttpCode(HttpStatus.CREATED)
     create(@Body () posting: Posting): Promise <Posting> {
         return this.postingService.create (posting)
     }
 
-    @Put()
+    @Put('/put')
     @HttpCode(HttpStatus.OK)
     update (@Body () posting: Posting): Promise <Posting> {
         return this.postingService.update (posting);
