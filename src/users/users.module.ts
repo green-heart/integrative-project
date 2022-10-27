@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import {TypeOrmModule} from '@nestjs/typeorm';
-import { Bcrypt } from 'src/auth/bcrypt/bcrypt';
+
+import { Bcrypt } from '../auth/bcrypt/bcrypt';
 import { UserController } from './controllers/user.controller';
 import { User } from './entities/users.entity';
 import { UserService } from './services/user.services';
@@ -12,4 +13,4 @@ import { UserService } from './services/user.services';
   exports: [UserService],
 })
 
-export class UserModule {}
+export class UserModule { }
