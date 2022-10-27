@@ -1,6 +1,6 @@
 export class UserLogin {
 
-    public user: string
+    public username: string
 
     public password: string
 
