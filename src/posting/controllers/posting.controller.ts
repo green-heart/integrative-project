@@ -1,8 +1,10 @@
-import { Body, Delete, Param, ParseIntPipe,Controller, Get, HttpCode, HttpStatus, Post, Put } from "@nestjs/common"
+import { Body, Delete, Param, ParseIntPipe,Controller, Get, HttpCode, HttpStatus, Post, Put, UseGuards } from "@nestjs/common"
 
+import { LocalAuthGuard } from "../../auth/guard/local-auth.guard";
 import { Posting } from "../entities/posting.entity";
 import { PostingService } from "../services/posting.service";
 
+@UseGuards (LocalAuthGuard)
 @Controller ("/posting")
 export class PostingController {
     constructor (private readonly postingService: PostingService) { }

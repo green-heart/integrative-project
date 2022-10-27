@@ -1,6 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+
 import { Bcrypt } from '../../auth/bcrypt/bcrypt';
 import { User } from '../entities/users.entity';
 
@@ -26,9 +27,8 @@ export class UserService {
 
     async findAll (): Promise <User []> {
         return await this.userRepository.find ({
-                relations:{posting: true}
+            relations:{posting: true}
         });
-
     }
 
     async findById (id: number): Promise <User> {
@@ -41,7 +41,6 @@ export class UserService {
             throw new HttpException('user\'s not found!', HttpStatus.NOT_FOUND);
 
         return user;
-
     }
 
     async create (username: User): Promise <User> {
