@@ -11,7 +11,15 @@ import { Theme } from "../entities/theme.entity";
 @Injectable()
 export class ThemeService {
     constructor(@InjectRepository (Theme) private themeRepository: Repository<Theme>) {}
-
+    
+   /**
+     * @desc Deletes a database theme
+     * @param id The theme identifier to be deleted.
+     * @returns Empty Content
+     * @Example 
+     * delete(2); // It is going to delete the id theme = 2
+     * delete(5); // It is going to delete the id theme = 5
+     */
     async findAll (): Promise <Theme []> {
         return await this.themeRepository.find ({
             relations: {posting: true}
