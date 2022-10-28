@@ -34,7 +34,7 @@ describe ('User and Authentication Module Tests (e2e)', () => {
     await app.close ();
   })
   
-  it ('01 - should register a new user', async () => {
+  it ('01 - Must register a new user', async () => {
     const resposta = await request (app.getHttpServer ())
     .post ('/user/sign_up')
     .send({
@@ -48,7 +48,7 @@ describe ('User and Authentication Module Tests (e2e)', () => {
     userId = resposta.body.id;
   })
 
-  it ('02 - should authenticate a new user (login)', async () => {
+  it ('02 - Must authenticate a new user (login)', async () => {
     const resposta = await request (app.getHttpServer())
     .post('/auth/sign_in')
     .send({
@@ -60,7 +60,7 @@ describe ('User and Authentication Module Tests (e2e)', () => {
     token = resposta.body.token
   });
   
-  it ('03 - should not register the same user', async () => {
+  it ('03 - Must not register the same user', async () => {
     request(app.getHttpServer())
     .post ('/user/sign_up')
     .send({
@@ -73,7 +73,7 @@ describe ('User and Authentication Module Tests (e2e)', () => {
     expect (400)
   })
   
-  it ('04 - should list all users', async () => {
+  it ('04 - Must list all users', async () => {
     request(app.getHttpServer())
     .get('/user/all')
     .set('Authorization', `${token}`)
@@ -81,7 +81,7 @@ describe ('User and Authentication Module Tests (e2e)', () => {
     expect (200)
   })
 
-  it ('05 - should update user', async () => {
+  it ('05 - Must update an user', async () => {
     request(app.getHttpServer())
     .put ('/user/update')
     .set('authorization', `${token}`)
