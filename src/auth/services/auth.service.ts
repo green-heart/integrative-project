@@ -18,7 +18,7 @@ export class AuthService {
     const searchUser = await this.userService.findByUser (username)
 
     if (!searchUser)
-        throw new HttpException ('User not found!', HttpStatus.NOT_FOUND);
+        throw new HttpException ('The user was not found!', HttpStatus.NOT_FOUND);
       
     const match = await this.bcrypt.comparePasswords (searchUser.password, password)
 
