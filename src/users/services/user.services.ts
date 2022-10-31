@@ -38,7 +38,7 @@ export class UserService {
         });
 
         if (!user)
-            throw new HttpException('user\'s not found!', HttpStatus.NOT_FOUND);
+            throw new HttpException('User was not found', HttpStatus.NOT_FOUND);
 
         return user;
     }
@@ -50,7 +50,7 @@ export class UserService {
             username.password = await this.bcrypt.encryptPassword (username.password)
             return await this.userRepository.save (username);
         }
-        throw new HttpException ("user\'s not found!", HttpStatus.BAD_REQUEST);
+        throw new HttpException ("User was not found", HttpStatus.BAD_REQUEST);
     }
 
     async update (username: User): Promise <User> {
@@ -60,13 +60,13 @@ export class UserService {
         let searchEmail = await this.findByEmail (username.email)
 
         if (!updateUser)
-            throw new HttpException ('User\'s not found!', HttpStatus.NOT_FOUND);
+            throw new HttpException ('User was not found', HttpStatus.NOT_FOUND);
 
         if (searchUser && searchUser.id !== username.id)
-            throw new HttpException ('username already exists!', HttpStatus.BAD_REQUEST);
+            throw new HttpException ('Username already exists', HttpStatus.BAD_REQUEST);
 
         if (searchEmail && searchEmail.id !== username.id)
-            throw new HttpException ('e-mail already exists!', HttpStatus.BAD_REQUEST);
+            throw new HttpException ('E-mail already exists', HttpStatus.BAD_REQUEST);
 
         username.password = await this.bcrypt.encryptPassword (username.password)
         return await this.userRepository.save (username);

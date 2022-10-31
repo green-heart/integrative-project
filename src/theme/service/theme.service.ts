@@ -39,7 +39,7 @@ export class ThemeService {
             relations: {posting: true}
         });
         if (!theme)
-            throw new HttpException ('Theme not found!', HttpStatus.NOT_FOUND)
+            throw new HttpException ('Theme was not found!', HttpStatus.NOT_FOUND)
         return theme;
     }
 
@@ -79,7 +79,7 @@ export class ThemeService {
         let searchTheme: Theme = await this.findById (theme.id);
 
         if(!searchTheme || !theme.id) 
-            throw new HttpException ('Theme not found!', HttpStatus.NOT_FOUND);
+            throw new HttpException ('Theme was not found!', HttpStatus.NOT_FOUND);
         return await this.themeRepository.save (theme);   
     }
 
@@ -95,7 +95,7 @@ export class ThemeService {
         let searchTheme = await this.findById (id);
 
         if (!searchTheme)
-            throw new HttpException ('Theme not found!', HttpStatus.NOT_FOUND);
+            throw new HttpException ('Theme was not found!', HttpStatus.NOT_FOUND);
         return await this.themeRepository.delete (id);
     }
 }
