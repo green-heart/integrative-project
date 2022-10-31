@@ -33,7 +33,7 @@ export class PostingService {
             relations: {theme: true}
         });
         if (!searchPost)
-            throw new HttpException ('Post not found', HttpStatus.NOT_FOUND);
+            throw new HttpException ('The post was not found', HttpStatus.NOT_FOUND);
         return searchPost;
     }
 
@@ -70,7 +70,7 @@ export class PostingService {
         let searchPost: Posting = await this.findById (posting.id)
 
         if (!searchPost || !posting.id)
-            throw new HttpException ('Post not found!', HttpStatus.NOT_FOUND)
+            throw new HttpException ('The post was not found', HttpStatus.NOT_FOUND)
         return await this.postingRepository.save (posting)
     }
 
@@ -85,7 +85,7 @@ export class PostingService {
         let searchPost = await this.findById (id);
 
         if (!searchPost)
-            throw new HttpException ('Post not found!', HttpStatus.NOT_FOUND)
+            throw new HttpException ('The post was not found', HttpStatus.NOT_FOUND)
         return await this.postingRepository.delete (id);
     }
 }

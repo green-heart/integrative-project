@@ -3,7 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import * as request from 'supertest';
 
-describe('Testes dos Módulos dos temas (e2e)', () => {
+describe('Theme module testing (e2e)', () => {
 
   let token: any;
   let usuarioId: any;
@@ -36,7 +36,7 @@ describe('Testes dos Módulos dos temas (e2e)', () => {
     await app.close();
   });
 
-  it ('01 - should register a new user', async () => {
+  it ('01 - Must register a new user', async () => {
     const resposta = await request (app.getHttpServer ())
     .post ('/user/sign_up')
     .send({
@@ -50,7 +50,7 @@ describe('Testes dos Módulos dos temas (e2e)', () => {
     usuarioId = resposta.body.id;
   })
 
-  it ('02 - should authenticate a new user (login)', async () => {
+  it ('02 - Must authenticate a new user (login)', async () => {
     const resposta = await request (app.getHttpServer())
     .post('/auth/sign_in')
     .send({
@@ -61,7 +61,7 @@ describe('Testes dos Módulos dos temas (e2e)', () => {
       token = resposta.body.token
   })
 
-  it('03 - Must Create a theme linked to the post', async () => {
+  it('03 - Must create a theme linked to a post', async () => {
       const resposta = await request(app.getHttpServer())
         .post('/theme/create')
         .send({
@@ -73,7 +73,7 @@ describe('Testes dos Módulos dos temas (e2e)', () => {
       temaId = resposta.body.id;    
   });
 
-  it ('04 - should list all theme', async () => {
+  it ('04 - Must list all theme', async () => {
       await request(app.getHttpServer())
       .get('/theme/all')
       .set('Authorization', `${token}`)
@@ -81,7 +81,7 @@ describe('Testes dos Módulos dos temas (e2e)', () => {
       expect (200)
   })
 
-  it ('05 - should update theme', async () => {
+  it ('05 - Must update a theme', async () => {
     await request(app.getHttpServer())
     .put ('/theme/put')
     .set('Authorization', `${token}`)
@@ -92,12 +92,12 @@ describe('Testes dos Módulos dos temas (e2e)', () => {
       posting: ''
     })
     .then (resposta => {
-    expect ('Theme Atualizado').toEqual(resposta.body.name)
+    expect ('updated theme').toEqual(resposta.body.name)
     })
     expect (200)
   })
 
-  it ('06 - should not register the same theme', async () => {
+  it ('06 - Must not register the same theme', async () => {
       await request(app.getHttpServer())
       .post ('/theme/create')
       .send({

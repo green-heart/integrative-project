@@ -3,7 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import * as request from 'supertest';
 
-describe('Testes dos Módulos das postagens (e2e)', () => {
+describe('Post module testing (e2e)', () => {
 
     let token: any;
     let usuarioId: any;
@@ -36,7 +36,7 @@ describe('Testes dos Módulos das postagens (e2e)', () => {
     afterAll(async () => {
       await app.close();
     });
-    it ('01 - should register a new user', async () => {
+    it ('01 - Must register a new user', async () => {
       const resposta = await request (app.getHttpServer ())
       .post ('/user/sign_up')
       .send({
@@ -50,7 +50,7 @@ describe('Testes dos Módulos das postagens (e2e)', () => {
       expect (201)
     })
 
-    it ('02 - should authenticate a new user (login)', async () => {
+    it ('02 - Must authenticate a new user (login)', async () => {
       const resposta = await request (app.getHttpServer())
       .post('/auth/sign_in')
       .send({
@@ -61,7 +61,7 @@ describe('Testes dos Módulos das postagens (e2e)', () => {
       expect (200)  
     })
   
-    it('03 - Must Create a post linked to some theme', async () => {
+    it('03 - Must create a post linked to a theme', async () => {
       const resposta = await request(app.getHttpServer())
         .post('/posting/create')
         .send({
@@ -74,7 +74,7 @@ describe('Testes dos Módulos das postagens (e2e)', () => {
       expect(201)
     });
 
-    it ('04 - should list all posting', async () => {
+    it ('04 - Must list all posts', async () => {
         await request(app.getHttpServer())
         .get('/posting/all')
         .set('Authorization', `${token}`)
@@ -82,7 +82,7 @@ describe('Testes dos Módulos das postagens (e2e)', () => {
         expect (200)
       })    
 
-    it ('05 - should update posting', async () => {
+    it ('05 - Must update a post', async () => {
       await request(app.getHttpServer())
       .put ('/posting/put')
       .set('Authorization', `${token}`)
@@ -95,7 +95,7 @@ describe('Testes dos Módulos das postagens (e2e)', () => {
       })
       
       .then (resposta => {
-        expect ('Postagem Atualizada').toEqual(resposta.body.name)
+        expect ('Updated post').toEqual(resposta.body.name)
       })
       expect (200)
       })

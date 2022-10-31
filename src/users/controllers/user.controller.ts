@@ -25,7 +25,7 @@ export class UserController {
         @UseGuards (JwtAuthGuard)
         @Put ('/update')
         @HttpCode (HttpStatus.OK)
-        async update (@Body () user: User): Promise <User> {
-            return this.userService.update (user)
-            }
+        async update (@Body () username: User): Promise <User> {
+            return this.userService.update (username)
+        }
 }
