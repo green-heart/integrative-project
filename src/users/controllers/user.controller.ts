@@ -1,14 +1,17 @@
 import { Body, Controller, Get, HttpCode, Post, Put, UseGuards } from "@nestjs/common/decorators";
 import { HttpStatus } from "@nestjs/common/enums";
+import { ApiBearerAuth, ApiTags } from "@nestjs/swagger/dist";
 
 import { JwtAuthGuard } from "../../auth/guard/jwt-auth.guard";
 import { User } from "../entities/users.entity";
 import { UserService } from "../services/user.services";
 
+@ApiTags('User')
 @Controller ('/users')
 export class UserController {
     constructor(private readonly userService: UserService) {}
 
+        @ApiBearerAuth()
         @UseGuards (JwtAuthGuard)
         @Get ('/all')
         @HttpCode (HttpStatus.OK)
@@ -22,6 +25,7 @@ export class UserController {
             return this.userService.create (user);
         }
 
+        @ApiBearerAuth()
         @UseGuards (JwtAuthGuard)
         @Put ('/update')
         @HttpCode (HttpStatus.OK)
