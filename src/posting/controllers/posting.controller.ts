@@ -1,9 +1,11 @@
 import { Body, Delete, Param, ParseIntPipe,Controller, Get, HttpCode, HttpStatus, Post, Put, UseGuards } from "@nestjs/common"
+import { ApiTags } from "@nestjs/swagger";
 
 import { LocalAuthGuard } from "../../auth/guard/local-auth.guard";
 import { Posting } from "../entities/posting.entity";
 import { PostingService } from "../services/posting.service";
 
+@ApiTags ('Posting')
 @UseGuards (LocalAuthGuard)
 @Controller ("/posting")
 export class PostingController {
