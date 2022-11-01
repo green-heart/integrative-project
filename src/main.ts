@@ -24,6 +24,6 @@ async function bootstrap() {
     // Enable Cross Origin
     app.enableCors ();
     // Change Http port
-    await app.listen(4000);
+    await app.listen(process.env.PORT || 4000);
 }
 bootstrap();
