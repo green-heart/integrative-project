@@ -1,10 +1,23 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { DocumentBuilder } from '@nestjs/swagger';
+import { SwaggerModule } from '@nestjs/swagger/dist';
+import { AppModule } from './app.module'; 
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-    // Declare the brazilian time 
+
+    const config = new DocumentBuilder()
+    .setTitle ('integrative-project') 
+    .setDescription ('Project integrative-project')
+    .setContact ("Generation Brasil", "http://www.generationbrasil.online","generationprojeto@gmail.com")
+    .setVersion ('1.0')
+    .addBearerAuth()
+    .build();
+    const document = SwaggerModule.createDocument (app, config);
+    SwaggerModule.setup ('/swagger', app, document);
+
+        // Declare the brazilian time 
     process.env.TZ = '-03:00';
     // Http requisitions
     app.useGlobalPipes (new ValidationPipe ());
