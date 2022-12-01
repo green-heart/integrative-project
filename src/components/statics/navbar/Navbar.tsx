@@ -10,19 +10,13 @@ function Navbar() {
                 <Toolbar variant="dense">
                     <Box style={{ cursor: "pointer" }} >
                         <Typography variant="h5" color="inherit">
-                            BlogPessoal
+                        <Link to='/home'>Green Heart</Link>
                         </Typography>
                     </Box>
-
                     <Box display="flex" justifyContent="start">
                         <Box mx={1} style={{ cursor: "pointer" }}>
                             <Typography variant="h6" color="inherit">
-                                home
-                            </Typography>
-                        </Box>
-                        <Box mx={1} style={{ cursor: "pointer" }}>
-                            <Typography variant="h6" color="inherit">
-                                postagens
+                                <Link to='/posting'>Postings</Link>
                             </Typography>
                         </Box>
                         <Box mx={1} style={{ cursor: "pointer" }}>
@@ -32,7 +26,7 @@ function Navbar() {
                         </Box>
                         <Box mx={1} style={{ cursor: "pointer" }}>
                             <Typography variant="h6" color="inherit">
-                                cadastrar tema
+                                cadatrar tema
                             </Typography>
                         </Box>
                         <Link to='/login' className='text-decorator-none'>
