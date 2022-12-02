@@ -55,7 +55,7 @@ function RegisterUser(){
     }
 
     return (
-        <Grid container direction='row' justifiy-content='center' alignItems='center'>
+        <Grid container direction='row' justifyContent='center' alignItems='center'>
             <Grid item xs={6} className='image2'></Grid>
             <Grid item xs={6} alignItems='center'>
                 <Box padding={10}>

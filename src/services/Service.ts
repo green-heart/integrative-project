@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const api = axios.create({
-    baseURL:'https://bloggeneration.heroku.com'
+    baseURL:'https://green-heart.onrender.com'
 })
 
 export const registerUser = async(url: any, dados: any, setDado: any) => {
