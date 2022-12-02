@@ -1,4 +1,4 @@
-.imagem2{
+.image2{
     background-image: url(https://i.imgur.com/d5bMdDJ.jpg);
     background-repeat: no-repeat;
     width: 100vh;
@@ -7,7 +7,7 @@
     background-position: 'center';
 }
 
-.texto2{
+.text2{
     font-weight: bold !important;
 }
 
