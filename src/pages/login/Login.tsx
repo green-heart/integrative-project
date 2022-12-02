@@ -48,9 +48,9 @@ function Login() {
                 await login(`/users/login`, userLogin, setToken)
             
  
-                alert('Sucessfully logged!')  //Sucessfully logged
+                alert('Logado com sucesso!')  //Sucessfully logged
             }catch{Error}{
-                alert('Inconsistent userdata. Login error!')   //Inconsistent userdata. Login error
+                alert(' Dados do usuário inconsistentes. Erro de Login')   //Inconsistent userdata. Login error
             }
 
 
@@ -64,14 +64,14 @@ function Login() {
                 <Box paddingX={20}>
                     <form>
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos1'>Entrar</Typography>
-                        <TextField id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth />
-                        <TextField id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password'fullWidth />
+                        <TextField value={userLogin.user} onChange={(e: ChangeEvent<HTMLInputElement>) =>updatedModel(e)} id='user' label='user' variant='outlined' name='user' margin='normal' fullWidth />
+                        <TextField value={userLogin.password} onChange={(e: ChangeEvent<HTMLInputElement>) =>updatedModel(e)} id='password' label='password' variant='outlined' name='password' margin='normal' type='password'fullWidth />
                         <Box marginTop={2} textAlign='center'>
-                            <Link to='/home' className='text-decorator-none'>
-                                <Button type='submit' variant='contained' color='primary'>
-                                    Logar
+                        
+                        <Button type='submit' variant='contained' color='primary'>
+                                    Login
                                 </Button>
-                            </Link>
+                            
                         </Box>
                     </form>
                     <Box display='flex' justifyContent='center' marginTop={2}>
