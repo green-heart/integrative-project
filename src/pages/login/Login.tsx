@@ -16,7 +16,7 @@ function Login() {
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
             id: 0,
-            user: '',
+            username: '',
             password: '',
             token: '',
         })
@@ -39,18 +39,13 @@ function Login() {
             e.preventDefault();
 
             try{
-                const response = await api.post(`/usuarios/logar`, userLogin)
+                const response = await api.post(`/auth/login`, userLogin)
                 setToken(response.data.token)
-
  
                 alert('Usuário logado com sucesso!')
             }catch(Error){
                 alert(' Dados do usuário inconsistentes. Erro de Login')   //Inconsistent userdata. Login error
             }
-
-
-
-
         }
 
     return (
@@ -59,12 +54,12 @@ function Login() {
                 <Box paddingX={20}>
                     <form onSubmit={onSubmit}>
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos1'>Entrar</Typography>
-                        <TextField value={userLogin.user} onChange={(e: ChangeEvent<HTMLInputElement>) =>updatedModel(e)} id='user' label='user' variant='outlined' name='user' margin='normal' fullWidth />
-                        <TextField value={userLogin.password} onChange={(e: ChangeEvent<HTMLInputElement>) =>updatedModel(e)} id='password' label='password' variant='outlined' name='password' margin='normal' type='password'fullWidth />
+                        <TextField value={userLogin.username} onChange={(e: ChangeEvent<HTMLInputElement>) =>updatedModel(e)} id='username' label='Username' variant='outlined' name='username' margin='normal' fullWidth />
+                        <TextField value={userLogin.password} onChange={(e: ChangeEvent<HTMLInputElement>) =>updatedModel(e)} id='password' label='Senha' variant='outlined' name='password' margin='normal' type='password'fullWidth />
                         <Box marginTop={2} textAlign='center'>
                         
                         <Button type='submit' variant='contained' color='primary'>
-                                    Logar
+                                    Entrar
                                 </Button>
                             
                         </Box>
