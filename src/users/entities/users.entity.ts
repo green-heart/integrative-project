@@ -22,7 +22,7 @@ export class User {
     public username: string
 
     @IsEmail ()
-    @Column ({ length: 255, nullable: false })
+    @Column ({ length: 255})
     @ApiProperty()
     public email: string
 
@@ -32,7 +32,7 @@ export class User {
     @ApiProperty()
     public password: string
 
-    @Column ({ length: 5000 })
+    @Column ({ length: 5000, default: '' })
     @ApiProperty()
     public photo: string
 
