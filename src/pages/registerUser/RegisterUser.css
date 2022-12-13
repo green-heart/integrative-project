@@ -1,17 +1,18 @@
-.image2{
-    background-image: url(https://i.imgur.com/d5bMdDJ.jpg);
-    background-repeat: no-repeat;
-    width: 100vh;
-    min-height: 100vh;
-    background-size: 'cover';
-    background-position: 'center';
-}
+
 
 .text2{
     font-weight: bold !important;
+    color:#2b8a46;
+  
 }
 
 .btnCancelar{
     margin-right: 20px !important;
+}
+button#color{
+color: rgb(0, 30, 254);
+}
 
+.color3{
+    color: blueviolet;
 }
