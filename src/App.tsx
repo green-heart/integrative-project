@@ -8,11 +8,14 @@ import {Login} from './pages/login/Login';
 import { Navbar } from './components/statics/navbar/Navbar';
 import { Posting } from './pages/posting/Posting';
 import { RegisterUser } from './pages/registerUser/RegisterUser';
+import { Provider } from 'react-redux';
+import store from './store/store';
 
 function App() {
   const nome = '𝒢𝓇𝑒𝑒𝓃 𝐻𝑒𝒶𝓇𝓉 💚'
 
   return (
+    <Provider store={store}>
     <Router>
       <Navbar />
       
@@ -29,6 +32,7 @@ function App() {
       </Routes>
       <Footer />
     </Router>
+    </Provider>
   );
 }
 
