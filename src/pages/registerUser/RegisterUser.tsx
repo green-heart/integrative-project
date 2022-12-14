@@ -49,33 +49,38 @@ function RegisterUser(){
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
         if(confirmPassword === user.password){
-        registerUser(`/users/register`, user, setUserResult)
+        registerUser(`/users/sign_up`, user, setUserResult)
         alert('Usuario cadastrado com sucesso')
+        back()
         }else{
             alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
         }
     }
+
+    function back () {
+        navigate ('/login')
+    }
       
 
     return (
-        <Grid container direction='row' justifyContent='center' alignItems='center'>
+        <Grid container direction='column' justifyContent='center' alignItems='center'>
             <Grid item xs={6} className='image2'></Grid>
             <Grid item xs={6} alignItems='center'>
                 <Box padding={10}>
                     <form onSubmit={onSubmit}> 
-                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='text2'>Cadastrar</Typography>
-                        <TextField value={user.name} onChange={(e: ChangeEvent<HTMLInputElement>) =>updatedModel(e)} id='name' label='Nome' variant='outlined' name='name' margin='normal' fullWidth />
-                        <TextField value={user.username} onChange={(e: ChangeEvent<HTMLInputElement>) =>updatedModel(e)} id='username' label='NickName' variant='outlined' name='username' margin='normal' fullWidth />
-                        <TextField value={user.email} onChange={(e: ChangeEvent<HTMLInputElement>) =>updatedModel(e)} id='email' label='Email' variant='outlined' name='email' margin='normal' type='email' fullWidth />
-                        <TextField value={user.password} onChange={(e: ChangeEvent<HTMLInputElement>) =>updatedModel(e)} id='password' label='Senha' variant='outlined' name='password' margin='normal' type='password' fullWidth />
-                        <TextField value={confirmPassword} onChange={(e: ChangeEvent<HTMLInputElement>) =>confirmPasswordHandle(e)} id='confirmPassword' label='Confirme sua senha' variant='outlined' name='confirmPassword' margin='normal' type='password' fullWidth />
+                        <Typography variant='h3' gutterBottom  component='h3' align='center' className='text2'>𝙲𝚊𝚍𝚊𝚜𝚝𝚛𝚊𝚛</Typography>
+                        <TextField value={user.name} onChange={(e: ChangeEvent<HTMLInputElement>) =>updatedModel(e)} required id='name' label='Nome' variant='outlined' name='name' margin='normal'fullWidth />
+                        <TextField value={user.username} onChange={(e: ChangeEvent<HTMLInputElement>) =>updatedModel(e)} required id='username' label='Username' variant='outlined' name='username' margin='normal' fullWidth />
+                        <TextField value={user.email} onChange={(e: ChangeEvent<HTMLInputElement>) =>updatedModel(e)} required id='email' label='Email' variant='outlined' name='email' margin='normal' type='email' fullWidth />
+                        <TextField value={user.password} onChange={(e: ChangeEvent<HTMLInputElement>) =>updatedModel(e)} required id='password' label='Senha' variant='outlined' name='password' margin='normal' type='password' fullWidth />
+                        <TextField value={confirmPassword} onChange={(e: ChangeEvent<HTMLInputElement>) =>confirmPasswordHandle(e)}required id='confirmPassword' label='Confirme sua senha' variant='outlined' name='confirmPassword' margin='normal' type='password' fullWidth />
                         <Box marginTop={2} textAlign='center'>
-                            <Link to='/login' className='text-decorator-none '>
-                                <Button  variant='contained' color='secondary' className='btnCancelar'>
+                        <Link to='/login' className='text-decorator-none '>
+                                <Button id='color' variant='contained' className='btnCancelar'>
                                     Cancelar
                                 </Button>
-                            </Link>
-                            <Button type='submit' variant='contained' color='primary'>
+                        </Link>
+                            <Button id='color' type='submit' variant='contained'>
                                     Cadastrar
                                 </Button>
                         </Box>
