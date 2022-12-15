@@ -1,4 +1,4 @@
-interface UserLogin{
+interface Login{
     id: number;
     username: string;
     password: string;
@@ -6,4 +6,4 @@ interface UserLogin{
 
 }
 
-export default UserLogin;
+export default Login;
