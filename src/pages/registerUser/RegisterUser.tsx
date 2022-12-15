@@ -55,12 +55,12 @@ function RegisterUser(){
         }else{
             alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
         }
+
     }
 
     function back () {
         navigate ('/login')
     }
-      
 
     return (
         <Grid container direction='column' justifyContent='center' alignItems='center'>
@@ -77,11 +77,11 @@ function RegisterUser(){
                         <Box marginTop={2} textAlign='center'>
                         <Link to='/login' className='text-decorator-none '>
                                 <Button id='color' variant='contained' className='btnCancelar'>
-                                    Cancelar
+                                 Voltar
                                 </Button>
-                        </Link>
+                        </Link>    
                             <Button id='color' type='submit' variant='contained'>
-                                    Cadastrar
+                                 Cadastrar 
                                 </Button>
                         </Box>
                     </form>
