@@ -48,7 +48,7 @@ function DeletePosting() {
     }
 
     function sim() {
-        navigate('/feed')
+        navigate('/home')
         deleteById(`/posting/${id}`, {
             headers: {
                 'Authorization': token
@@ -67,7 +67,7 @@ function DeletePosting() {
     }
 
     function nao() {
-        navigate('/feed')
+        navigate('/home')
     }
     return (
         <>

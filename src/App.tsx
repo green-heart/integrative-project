@@ -5,10 +5,13 @@ import {Navbar} from './components/statics/navbar/Navbar';
 import { RegisterUser } from './pages/register/Register';
 import { Footer } from './components/statics/footer/Footer';
 import { Login } from './pages/login/Login';
-import { Home } from './pages/home/Home';
 import ListPosting from './components/post/listPosting/ListPosting';
 import NewPosting from './components/post/newPosting/NewPosting';
 import DeletePosting from './components/post/deletePosting/DeletePosting'
+import ListTheme from './components/theme/listTheme/ListTheme';
+import { Home } from './pages/home/Home';
+import NewTheme from './components/theme/newTheme/NewTheme';
+import DeleteTheme from './components/theme/deleteTheme/DeleteTheme';
 
 function App() {
   return (
@@ -20,7 +23,7 @@ function App() {
 
         <Route path="/login" element={<Login  />} />
 
-        <Route path="/feed" element={<ListPosting />} />
+        <Route path="/home" element={<Home/>} />
 
         <Route path="/registeruser" element={<RegisterUser />} />
 
@@ -28,8 +31,14 @@ function App() {
 
         <Route path="/newPosting/:id" element ={<NewPosting/>} />
 
+        <Route path="/newTheme/:id" element ={<NewTheme/>} />
+
         <Route path="/deletePosting/:id" element ={<DeletePosting/>} />
-                 
+
+        <Route path="/deleteTheme/:id" element ={<DeleteTheme/>} />
+
+        <Route path="/newTheme" element ={<NewTheme/>} />
+
       </Routes>
       <Footer />
     </Router>

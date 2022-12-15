@@ -38,11 +38,7 @@ function ListPosting() {
     <>
       {
         postings.map(posting => (
-          <Box m={2} >
-            <Link to='/newPosting'>
-            <Button variant="contained" className="marginLeft" size='small' color="inherit"> Criar postagem
-            </Button>
-            </Link>
+          <Box m={2} >  
             <Card variant="outlined">
               <CardContent>
                 <Typography color="textSecondary" gutterBottom>
@@ -57,7 +53,6 @@ function ListPosting() {
               </CardContent>
               <CardActions>
                 <Box display="flex" justifyContent="center" mb={1.5}>
-
                   <Link to={`/newPosting/${posting.id}`} className="text-decorator-none" >
                     <Box mx={1}>
                       <Button variant="contained" className="marginLeft" size='small' color="primary" >
