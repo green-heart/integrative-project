@@ -3,7 +3,7 @@ import {Grid, Box, Typography, Button, TextField} from '@material-ui/core';
 import {Link, useNavigate} from 'react-router-dom';
 import './RegisterUser.css';
 import User from '../../models/User';
-import { registerUser } from '../../services/Service';
+import { register } from '../../services/Service';
 
 function RegisterUser(){
 
@@ -49,7 +49,7 @@ function RegisterUser(){
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
         if(confirmPassword === user.password){
-        registerUser(`/users/sign_up`, user, setUserResult)
+        register(`/users/sign_up`, user, setUserResult)
         alert('Usuario cadastrado com sucesso')
         back()
         }else{
