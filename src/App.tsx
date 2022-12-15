@@ -7,7 +7,6 @@ import { RegisterUser } from './pages/register/Register';
 import { Footer } from './components/statics/footer/Footer';
 import { Login } from './pages/login/Login';
 import { Home } from './pages/home/Home';
-import { Posting } from './pages/posting/Posting';
 
 function App() {
   return (
@@ -22,8 +21,6 @@ function App() {
         <Route path="/home" element={<Home />} />
 
         <Route path="/registeruser" element={<RegisterUser />} />
-
-        <Route path="/posting" element={<Posting />} />
                  
       </Routes>
       <Footer />
