@@ -102,7 +102,7 @@ function NewPosting() {
     }
 
     function back() {
-        navigate('/feed')
+        navigate('/home')
     }
 
     return (
@@ -113,6 +113,7 @@ function NewPosting() {
 
                 <FormControl >
                     <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
+                    
                     <Select
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
@@ -128,6 +129,26 @@ function NewPosting() {
                         }
                     </Select>
                     <FormHelperText>Escolha um tema para a posting</FormHelperText>
+                    </FormControl>
+                    <FormControl >
+                    <InputLabel id="demo-simple-select-helper-label">Types </InputLabel>
+                    
+                    <Select
+                        labelId="demo-simple-select-helper-label"
+                        id="demo-simple-select-helper"
+                        onChange={(e) => searchById(`/theme/${e.target.value}`, setTheme, {
+                            headers: {
+                                'Authorization': token
+                            }
+                        })}>
+                        {
+                            themes.map (theme => (
+                                <MenuItem value={theme.id}>{theme.types}</MenuItem>
+                            ))
+                        }
+                    </Select>
+                    <FormHelperText>Escolha um tema para a posting</FormHelperText>
+
                     <Button type="submit" variant="contained" color="primary">
                         Finalizar
                     </Button>

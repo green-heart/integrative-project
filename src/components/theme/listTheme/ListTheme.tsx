@@ -32,7 +32,7 @@ function ListTheme() {
     }, [token])
 
     async function getTheme(){
-        await search("theme", setThemes, {
+        await search("theme/theme/all", setThemes, {
             headers: {
                 'Authorization': token
             }
@@ -60,14 +60,14 @@ function ListTheme() {
                 <CardActions>
                   <Box display="flex" justifyContent="center" mb={1.5} >
       
-                    <Link to={`/formularioTema/${theme.id}`} className="text-decorator-none">
+                    <Link to={`/newTheme/${theme.id}`} className="text-decorator-none">
                       <Box mx={1}>
                         <Button variant="contained" className="marginLeft" size='small' color="primary" >
                           atualizar
                         </Button>
                       </Box>
                     </Link>
-                    <Link to={`/deletarTema/${theme.id}`} className="text-decorator-none">
+                    <Link to={`/deleteTheme/${theme.id}`} className="text-decorator-none">
                       <Box mx={1}>
                         <Button variant="contained" size='small' color="secondary">
                           deletar
