@@ -3,9 +3,8 @@ import { Grid,Typography, TextField, Button } from '@material-ui/core';
 import {Box} from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import {api, login} from '../../services/Service';
-import useLocalStorage from 'react-use-localstorage';
 import './Login.css';
-import UserLogin from '../../models/Login';
+import SignIn from '../../models/SignIn';
 import { useDispatch } from 'react-redux';
 import { addToken } from '../../store/tokens/actions';
 
@@ -16,7 +15,8 @@ function Login() {
     const dispatch = useDispatch();
     const [token, setToken] = useState('');
 
-    const [userLogin, setUserLogin] = useState<UserLogin>(
+
+    const [userLogin, setUserLogin] = useState<SignIn>(
         {
             id: 0,
             username: '',
@@ -62,7 +62,7 @@ function Login() {
                         <TextField value={userLogin.password} onChange={(e: ChangeEvent<HTMLInputElement>) =>updatedModel(e)} id='password' label='Senha' variant='outlined' name='password' margin='normal' type='password'fullWidth />
                         <Box marginTop={2} textAlign='center'>
                         
-                        <Button id='color' type='submit' variant='contained'  >
+                        <Button id='color3' type='submit' variant='contained'  >
                                 Entrar
                                 </Button>
                             

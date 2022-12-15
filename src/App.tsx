@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {Navbar} from './components/statics/navbar/Navbar';
-import { RegisterUser } from './pages/register/Register';
+import { Register } from './pages/register/Register';
 import { Footer } from './components/statics/footer/Footer';
 import { Login } from './pages/login/Login';
 import ListPosting from './components/post/listPosting/ListPosting';
@@ -12,11 +12,13 @@ import ListTheme from './components/theme/listTheme/ListTheme';
 import { Home } from './pages/home/Home';
 import NewTheme from './components/theme/newTheme/NewTheme';
 import DeleteTheme from './components/theme/deleteTheme/DeleteTheme';
+import About from './pages/about/About';
 
 function App() {
   return (
     <Router>
       <Navbar />
+      <div style={{minHeight: ' 90vh'}} >
       <Routes>
         
         <Route path="/" element={<Login  />} />
@@ -25,7 +27,7 @@ function App() {
 
         <Route path="/home" element={<Home/>} />
 
-        <Route path="/registeruser" element={<RegisterUser />} />
+        <Route path="/registeruser" element={<Register />} />
 
         <Route path="/newPosting" element ={<NewPosting/>} />
 
@@ -39,7 +41,10 @@ function App() {
 
         <Route path="/newTheme" element ={<NewTheme/>} />
 
+        <Route path="/about" element ={<About/>} />
+
       </Routes>
+      </div>
       <Footer />
     </Router>
   );
