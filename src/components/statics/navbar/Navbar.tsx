@@ -16,7 +16,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { addToken } from '../../../store/tokens/actions';
 import './Navbar.css';
@@ -62,7 +62,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-  function Navbar() {
+function Navbar() {
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const token = useSelector<TokenState, TokenState['tokens']>(
@@ -71,7 +71,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
   function goLogout() {
     console.log('a');
-    
+
     dispatch(addToken(''));
     alert('Usuário deslogado');
     navigate('/login');
@@ -79,12 +79,22 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
+  const [anchorElH, setAnchorElH] = React.useState<null | HTMLElement>(null);
+  const [mobileMoreAnchorElH, setMobileMoreAnchorElH] =
+    React.useState<null | HTMLElement>(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+  const isMenuHOpen = Boolean(anchorElH);
+  const isMobileMenuHOpen = Boolean(mobileMoreAnchorElH);
+
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
+  };
+
+  const handleProfileMenuHOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElH(event.currentTarget);
   };
 
   const handleMobileMenuClose = () => {
@@ -93,6 +103,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
   const handleMenuClose = () => {
     setAnchorEl(null);
+    handleMobileMenuClose();
+  };
+
+  const handleMenuHClose = () => {
+    setAnchorElH(null);
     handleMobileMenuClose();
   };
 
@@ -120,6 +135,32 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     >
       <MenuItem onClick={handleMenuClose}>Minha Conta</MenuItem>
       <MenuItem onClick={goLogout}>Sair</MenuItem>
+
+    </Menu>
+  );
+
+  const menuHId = 'primary-search-account-menu';
+  const renderMenuH = (
+    <Menu
+      anchorEl={anchorElH}
+      anchorOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      id={menuHId}
+      keepMounted
+      transformOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      open={isMenuHOpen}
+      onClose={handleMenuHClose}
+    > <Link to='/home' className="text">
+      <MenuItem onClick={handleMenuHClose}>Home</MenuItem>
+    </Link>
+      <Link to='/about' className="text">
+        <MenuItem onClick={handleMenuHClose}>Sobre</MenuItem>
+      </Link>
 
     </Menu>
   );
@@ -183,7 +224,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
           <IconButton
             size="large"
             edge="start"
-            onClick={handleProfileMenuOpen}
+            onClick={handleProfileMenuHOpen}
+            aria-controls={menuHId}
+            aria-haspopup="true"
             color="inherit"
             aria-label="open drawer"
             sx={{ mr: 55 }}
@@ -257,14 +300,15 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
+      {renderMenuH}
     </Box>
   );
 
   return (
     <>
-      { (token !== '') && navBar }
+      {(token !== '') && navBar}
     </>
   );
 }
 
-export {Navbar}
+export { Navbar }
