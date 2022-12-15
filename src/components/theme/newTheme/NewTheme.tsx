@@ -37,11 +37,11 @@ function NewTheme(){
 
     useEffect(() => {
         if(id !== undefined){
-            findById(id)
+            findByIdTheme(id)
         }
     }, [id])
 
-    async function findById(id:string) {
+    async function findByIdTheme(id:string) {
         searchById(`/theme/${id}`, setTheme, {
             headers: {
                 'Authorization': token
@@ -63,7 +63,7 @@ function NewTheme(){
 
         if (id !== undefined) {
             console.log(theme)
-            put(`/theme`, theme, setTheme, {
+            put(`/theme/put`, theme, setTheme, {
                 headers: {
                     'Authorization': token
                 }
@@ -80,7 +80,7 @@ function NewTheme(){
             });
 
         } else {
-            post(`/theme`, theme, setTheme, {
+            post(`/theme/create`, theme, setTheme, {
                 headers: {
                     'Authorization': token
                 }
@@ -100,7 +100,7 @@ function NewTheme(){
     }
 
     function back() {
-        navigate('/themes')
+        navigate('/home')
     }
     
     return (
@@ -108,6 +108,7 @@ function NewTheme(){
         <form onSubmit={onSubmit}>
             <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro tema</Typography>
             <TextField value={theme.classification} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTheme(e)} id="classification" label="classification" variant="outlined" name="classification" margin="normal" fullWidth />
+            <TextField value={theme.types} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTheme(e)} id="types" label="types" variant="outlined" name="types" margin="normal" fullWidth />
             <Button type="submit" variant="contained" color="primary">
                 Finalizar
             </Button>

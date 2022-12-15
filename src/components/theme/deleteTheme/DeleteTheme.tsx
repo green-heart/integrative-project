@@ -48,7 +48,7 @@ function DeleteTheme() {
     }
 
     function sim() {
-        navigate('/themes')
+        navigate('/home')
         deleteById(`/theme/${id}`, {
             headers: {
                 'Authorization': token
@@ -67,7 +67,7 @@ function DeleteTheme() {
     }
 
     function nao() {
-        navigate('/themes')
+        navigate('/home')
     }
 
     return(
