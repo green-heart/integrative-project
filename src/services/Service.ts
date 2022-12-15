@@ -1,38 +1,50 @@
 import axios from 'axios';
+import Login from '../models/Login';
 
 export const api = axios.create({
-    baseURL:'https://green-heart.onrender.com'
+    baseURL: 'http://localhost:4000'
 })
 
-export const registerUser = async(url: any, dados: any, setDado: any) => {
-    const response = await api.post(url, dados,)
-    setDado(response.data.token)
+export const register = async (url: string, data: {
+    name: string,
+    username: string,
+    email: string,
+    password: string
+},
+    setData: any) => {
+    const response = await api.post(url, data)
+    setData(response.data.token)
 }
 
-export const login = async(url: any, dados: any, setDado: any) => {
-    const response = await api.post(url, dados)
-    setDado(response.data)
+export const login = async (url: string, data: {
+    username: string,
+    password: string
+},
+    setData: any) => {
+    const response = await api.post(url, data)
+    setData(response.data.token)
 }
 
-export const busca = async (url: any, setDado: any, header: any) => {
-    const resposta = await api.get(url, header)
+export const search = async (url: string, setData: any, header: any) => {
+    const response = await api.get(url, header)
+    setData (response.data)
 }
 
-export const buscaId = async (url: any, setDado: any, header: any) => {
-    const resposta = await api.get(url,header)
-    setDado(resposta.data)
+export const searchById = async (url: string, setData: any, header: any) => {
+    const response = await api.get(url, header)
+    setData(response.data)
 }
 
-export const post = async(url: any, dados: any, setDado: any, header: any) => { 
-    const resposta = await api.post(url,dados,header)
-    setDado(resposta.data)
+export const post = async (url: string, data: any, setData: any, header: any) => {
+    const response = await api.post(url, data, header)
+    setData(response.data)
 }
 
-export const put = async(url: any, dados: any, setDado: any, header: any) => { 
-    const resposta = await api.put(url,dados,header)
-    setDado(resposta.data)
+export const put = async (url: string, data: any, setData: any, header: any) => {
+    const response = await api.put(url, data, header)
+    setData(response.data)
 }
 
-export const deleteId = async(url: any,header: any) => { 
-    await api.delete(url,header)
+export const deleteById = async (url: string, header: any) => {
+    await api.delete(url, header)
 }
