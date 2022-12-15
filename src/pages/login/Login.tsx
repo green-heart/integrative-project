@@ -35,7 +35,7 @@ function Login() {
         useEffect(() =>{
             if(token != ''){
                 dispatch(addToken(token));
-                navigate('/home')
+                navigate('/feed')
             }
         }, [token])
 
