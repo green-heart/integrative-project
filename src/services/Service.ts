@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Login from '../models/Login';
+import Login from '../models/SignIn';
 
 export const api = axios.create({
     baseURL: 'http://localhost:4000'
