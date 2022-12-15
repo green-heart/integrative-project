@@ -1,17 +1,17 @@
-.text2{
-    font-weight: bold !important;
-    color:#2b8a46;
-  
-}
-
-.btnCancelar{
-    margin-right: 20px !important;
-}
-button#color{
-color: rgba(2, 72, 10, 0.713);
-}
-
-a#text{
-    text-decoration: none;
-    color: #ffaa00;
-}
+    button#color1{
+    color: #124116;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    }
+    button#color2{
+       color: rgba(165, 153, 42, 0.743)
+      
+    }
+    a#text{
+       text-decoration: none;
+    }
+    .text2{
+       color: #124116
+    }
+    
