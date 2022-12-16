@@ -49,8 +49,9 @@ function Register(){
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
         if(confirmPassword === user.password){
-        register(`/users/register`, user, setUserResult)
+        register(`/users/sign_up`, user, setUserResult)
         alert('Usuario cadastrado com sucesso')
+            navigate("/login")
         }else{
             alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
         }
@@ -59,8 +60,7 @@ function Register(){
 
     return (
         <Grid container direction='column' justifyContent='center' alignItems='center'>
-            <Grid item xs={6} className='image2'></Grid>
-            <Grid item xs={6} alignItems='center'>
+            <Grid item xs={6}>
                 <Box padding={10}>
                     <form onSubmit={onSubmit}> 
                         <Typography variant='h3' gutterBottom  component='h3' align='center' className='text2'>𝙲𝚊𝚍𝚊𝚜𝚝𝚛𝚊𝚛</Typography>
