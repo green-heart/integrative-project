@@ -33,8 +33,8 @@ export default function About() {
 
             <Typography marginTop={10} mx={10} className='text' variant="h4" color="initial">Nossa equipe,</Typography>
 
-            <Grid container spacing={1} minHeight={300}  >
-                <Grid xs display="flex" justifyContent="center" flexDirection='column' alignItems="center">
+            <Grid container spacing={1} minHeight={300}>
+                <Grid display="flex" justifyContent="center" flexDirection='column' alignItems="center">
                     <Avatar src="https://avatars.githubusercontent.com/u/112709239?v=4"
                         sx={{ width: 150, height: 150 }}
                     />
@@ -46,32 +46,31 @@ export default function About() {
                     />
                     <Typography className='text' variant="h6" color="initial">Roseane</Typography>
                 </Grid>
-                <Grid xs display="flex" justifyContent="center" flexDirection='column' alignItems="center">
+                <Grid display="flex" justifyContent="center" flexDirection='column' alignItems="center">
                     <Avatar src="https://cdn.discordapp.com/attachments/1049282802560008232/1052608462951034900/IMG_20221205_140823_139.jpg"
-                        sx={{ width: 150, height: 150 }}
-                    />
+                        sx={{ width: 150, height: 150 }} />
                     <Typography className='text' variant="h6" color="initial">João Victor</Typography>
                 </Grid>
-                <Grid flexDirection='column' xs display="flex" justifyContent="center" alignItems="center">
+                <Grid flexDirection='column' display="flex" justifyContent="center" alignItems="center">
                     <Avatar src="https://avatars.githubusercontent.com/u/112709178?v=4"
                         sx={{ width: 150, height: 150 }}
                     />
                     <Typography className='text' variant="h6" color="initial">Arthur</Typography>
                 </Grid>
-                <Grid flexDirection='column' xs display="flex" justifyContent="center" alignItems="center">
+                <Grid flexDirection='column' display="flex" justifyContent="center" alignItems="center">
                     <Avatar src="https://avatars.githubusercontent.com/u/79030781?v=4"
                         sx={{ width: 150, height: 150 }}
 
                     />
                     <Typography className='text' variant="h6" color="initial">Alexsander</Typography>
                 </Grid>
-                <Grid flexDirection='column' xs display="flex" justifyContent="center" alignItems="center">
+                <Grid flexDirection='column' display="flex" justifyContent="center" alignItems="center">
                     <Avatar src="https://avatars.githubusercontent.com/u/99145534?v=4"
                         sx={{ width: 150, height: 150 }}
                     />
                     <Typography className='text' variant="h6" color="initial">Victor Antonino</Typography>
                 </Grid>
-                <Grid flexDirection='column' xs display="flex" justifyContent="center" alignItems="center">
+                <Grid flexDirection='column' display="flex" justifyContent="center" alignItems="center">
                     <Avatar src="https://avatars.githubusercontent.com/u/112710222?v=4"
                         sx={{ width: 150, height: 150 }}
                     />
