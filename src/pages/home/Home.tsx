@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Typography, Box, Grid, Button } from '@material-ui/core';
+import {  Box, Grid, Button } from '@material-ui/core';
 import './Home.css';
 import { Link } from 'react-router-dom';
 import ListPosting from '../../components/post/listPosting/ListPosting';
