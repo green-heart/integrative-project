@@ -12,5 +12,7 @@ code {
     monospace;
 }
 body{
-background-image: url(https://img.freepik.com/fotos-gratis/texturas-de-parede-cinza-para-plano-de-fundo_74190-4389.jpg?w=2000);
+background-image: url(https://img.freepik.com/fotos-gratis/fundo-de-textura-de-papel-branco_24972-509.jpg?w=360);
+background-size: cover;
+width: auto;
 }

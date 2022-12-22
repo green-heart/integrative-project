@@ -9,7 +9,7 @@ function Footer(){
     return(
         <>
         <Grid container justifyContent="center" alignItems="center">
-                <Grid alignItems="center" justifyContent='center' item xs={12} style={{backgroundColor: '#1c3f2b', height: '60px'}}>
+                <Grid alignItems="center" justifyContent='center' item xs={12} style={{backgroundColor: '#rgba(96, 108, 56, 0.7)', height: '60px'}}>
                         <Typography variant="subtitle2" align="center" className='textos' style={{marginTop: 20}}>Green Heart © Copyright 2022</Typography>
                 </Grid>
             </Grid>
