@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import { styled, alpha} from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -20,8 +20,17 @@ import { Link, useNavigate } from 'react-router-dom';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { addToken } from '../../../store/tokens/actions';
 import './Navbar.css';
+import { makeStyles } from '@material-ui/core';
 
 
+
+
+const useStyles=makeStyles({
+  div:{
+    backgroundColor: 'rgba(8, 124, 57, 0.8)',
+
+  }
+})
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -63,6 +72,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 function Navbar() {
+
+  const classes=useStyles();
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const token = useSelector<TokenState, TokenState['tokens']>(
@@ -220,7 +231,7 @@ function Navbar() {
   const navBar = (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" className="icons">
-        <Toolbar className='navbar'>
+        <Toolbar className={classes.div}>
           <IconButton
             size="large"
             edge="start"
@@ -306,7 +317,7 @@ function Navbar() {
 
   return (
     <>
-      {(token !== '') && navBar}
+      {navBar}
     </>
   );
 }
