@@ -1,8 +1,10 @@
 import axios from 'axios';
-import Login from '../models/Login';
+import Login from '../models/SignIn';
+import { Dispatch, SetStateAction } from 'react';
 
 export const api = axios.create({
-    baseURL: 'http://localhost:4000'
+    //baseURL: 'http://localhost:4000'
+    baseURL: 'https://green-heart.onrender.com'
 })
 
 export const register = async (url: string, data: {
@@ -20,14 +22,14 @@ export const login = async (url: string, data: {
     username: string,
     password: string
 },
-    setData: any) => {
+    setData: React.Dispatch<React.SetStateAction<string>>) => {
     const response = await api.post(url, data)
     setData(response.data.token)
 }
 
 export const search = async (url: string, setData: any, header: any) => {
     const response = await api.get(url, header)
-    setData (response.data)
+    setData(response.data)
 }
 
 export const searchById = async (url: string, setData: any, header: any) => {

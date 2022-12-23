@@ -1,8 +1,11 @@
 .box1{
-    background-color: #1c3f2b;
-    height: 30px;
+    height: 60px;
+    padding-top: 10px;
+    padding: '3rem',
+    
+    
 }
 .textos{
-   color: rgb(243, 243, 243);
-
+   color: rgb(0, 0, 0);
+   ;
 }

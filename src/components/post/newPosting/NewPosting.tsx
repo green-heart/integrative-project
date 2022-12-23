@@ -10,6 +10,7 @@ import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem,
 
 function NewPosting() {
 
+
     let navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
     const [themes, setThemes] = useState<Theme[]>([]);
@@ -19,9 +20,9 @@ function NewPosting() {
 
     useEffect(() => {
         if (token == "") {
-            alert("KKKKKK tem logar burro");
+            alert("Precisa estar logado");
             navigate("/login");
-        } 
+        }
     }, [token])
 
     const [theme, setTheme] = useState<Theme>({
@@ -76,7 +77,7 @@ function NewPosting() {
         setPosting({
             ...posting,
             [e.target.name]: e.target.value,
-            theme: theme 
+            theme: theme
         })
     }
 
@@ -84,21 +85,21 @@ function NewPosting() {
         e.preventDefault()
 
         if (id !== undefined) {
-            put (`/posting/put`, posting, setPosting, {
+            put(`/posting/put`, posting, setPosting, {
                 headers: {
                     'Authorization': token
                 }
             })
-            alert ("Atualizado")
+            alert("Atualizado")
         } else {
             post(`/posting/create`, posting, setPosting, {
                 headers: {
                     'Authorization': token
                 }
             })
-            alert ("Post criado");
+            alert("Postagem criada");
+            back();
         }
-        back()
     }
 
     function back() {
@@ -108,12 +109,12 @@ function NewPosting() {
     return (
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro posting</Typography>
+                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Nova Postagem</Typography>
                 <TextField value={posting.text} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPosting(e)} id="titulo" label="titulo" variant="outlined" name="text" margin="normal" fullWidth />
 
                 <FormControl >
                     <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
-                    
+
                     <Select
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
@@ -123,36 +124,16 @@ function NewPosting() {
                             }
                         })}>
                         {
-                            themes.map (theme => (
+                            themes.map(theme => (
                                 <MenuItem value={theme.id}>{theme.classification}</MenuItem>
                             ))
                         }
                     </Select>
                     <FormHelperText>Escolha um tema para a posting</FormHelperText>
-                    </FormControl>
-                    <FormControl >
-                    <InputLabel id="demo-simple-select-helper-label">Types </InputLabel>
-                    
-                    <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        onChange={(e) => searchById(`/theme/${e.target.value}`, setTheme, {
-                            headers: {
-                                'Authorization': token
-                            }
-                        })}>
-                        {
-                            themes.map (theme => (
-                                <MenuItem value={theme.id}>{theme.types}</MenuItem>
-                            ))
-                        }
-                    </Select>
-                    <FormHelperText>Escolha um tema para a posting</FormHelperText>
-
-                    <Button type="submit" variant="contained" color="primary">
-                        Finalizar
-                    </Button>
                 </FormControl>
+                <Button type="submit" variant="contained" style={{ paddingLeft: 10 }}>
+                    Finalizar
+                </Button>
             </form>
         </Container>
     )
