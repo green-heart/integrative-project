@@ -53,28 +53,11 @@ function Register(){
         e.preventDefault()
         if(confirmPassword === user.password){
         register(`/users/sign_up`, user, setUserResult)
-        toast.success('Usuario cadastrado com sucesso', {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: false,
-            theme: "colored",
-            progress: undefined,
-            });
+            alert ('Usuário criado com sucesso!')
             navigate("/login")
         }else{
-            toast.error('Dados inconsistentes. Favor verificar as informações de cadastro.', {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                theme: "colored",
-                progress: undefined,
-                });        }
+            alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+        }
     }
       
 

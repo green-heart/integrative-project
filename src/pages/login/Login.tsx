@@ -49,27 +49,11 @@ function Login() {
             const response = await api.post(`/auth/login`, userLogin)
             setToken(response.data.token)
 
-            toast.success('Usuário logado com sucesso!', {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                theme: "colored",
-                progress: undefined,
-                });
+            alert('Usuário logado com sucesso!');
+            
         } catch (Error) {
-            toast.error('Dados do usuário inconsistentes. Erro ao logar!', {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                theme: "colored",
-                progress: undefined,
-                });        }
+            alert ('Dados do usuário inconsistentes. Erro ao logar!')
+        }
     }
 
     return (

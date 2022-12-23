@@ -3,7 +3,8 @@ import Login from '../models/SignIn';
 import { Dispatch, SetStateAction } from 'react';
 
 export const api = axios.create({
-    baseURL: 'http://localhost:4000'
+    //baseURL: 'http://localhost:4000'
+    baseURL: 'https://green-heart.onrender.com'
 })
 
 export const register = async (url: string, data: {

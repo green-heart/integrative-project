@@ -17,15 +17,15 @@ export default function About() {
             <Typography textAlign='center' className='titulo' marginBottom={5} variant="h2">
                 Green Heart
             </Typography>
-            <Typography className='tab5' marginLeft={15} variant="h4">
+            <Typography className='tab5' marginLeft={15} variant="h6">
                 Sobre o projeto
             </Typography>
-            <Typography marginTop={2} marginX={20} variant="h4"  className='tab5'>
+            <Typography marginTop={2} marginX={20} variant="subtitle1"  className='tab5'>
                 Somos o Green Heart, uma rede social que tem como objetivo mobilizar e unir pessoas engajadas em reduzir os impactos das mudanças climáticas no planeta.
                 Unidos para conscientizar outras pessoas a fazer a diferença.
 
             </Typography>
-            <Typography marginBottom={5} marginX={20} className='tab5' variant="h4" >
+            <Typography marginBottom={5} marginX={20} className='tab5' variant="subtitle1" >
                 O ODS (Objetivos de Desenvolvimento Sustentável) 13 é em prol de combater as mudanças climáticas e ajudar no desenvolvimento do nosso planeta.
                 Juntos fazemos a diferença, mobilizar pessoas é um ato de cuidado.
 
@@ -34,7 +34,7 @@ export default function About() {
 
             </Typography>
 
-            <Typography marginTop={10} mx={10} className='text' variant="h4" color="initial">Nossa equipe,</Typography>
+            <Typography marginTop={10} mx={10} className='text' variant="h6" color="initial">Nossa equipe,</Typography>
 
             <Grid container spacing={1} minHeight={300}>
                 <Grid display="flex" justifyContent="center" flexDirection='column' alignItems="center">
@@ -49,7 +49,7 @@ export default function About() {
 
                 <Grid display="flex" justifyContent="center" flexDirection='column' alignItems="center">
                     <Avatar src="https://cdn.discordapp.com/attachments/1049282802560008232/1052607922384941106/138320927_2108141845989118_2803333994106948376_n_resized.jpg"
-                        sx={{ width: 150, height: 150 }}
+                        sx={{ width: 150, height: 150 ,marginLeft: 3}}
                     />
                     <Typography className='text' variant="h6" color="initial">Roseane</Typography>
                     <Link href="https://www.instagram.com/alexsandermog/">
