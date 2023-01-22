@@ -19,11 +19,6 @@ export class Theme {
     classification: string
 
     @ApiProperty()
-    @IsNotEmpty ()
-    @Column ({length: 50, nullable: false})
-    types: string
-
-    @ApiProperty()
     @OneToMany (() => Posting, (posting) => posting.theme)
     posting: Posting [];
 
