@@ -56,6 +56,11 @@ body {
     background-color: #10c48c;
 }
 
+#upload {
+    color: white;
+    background-color: #04845c;
+ }
+
 @media only screen and (max-device-width: 320px) {
     #sign-up {
         font-size: small;
