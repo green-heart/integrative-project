@@ -8,11 +8,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Roboto, 'Courier New',
     monospace;
 }
-body{
-background-image: url(https://img.freepik.com/fotos-gratis/fundo-de-textura-de-papel-branco_24972-509.jpg?w=360);
-background-size: cover;
-width: auto;
-}
+
