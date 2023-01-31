@@ -13,11 +13,13 @@ import { Home } from './pages/home/Home';
 import NewTheme from './components/theme/newTheme/NewTheme';
 import DeleteTheme from './components/theme/deleteTheme/DeleteTheme';
 import About from './pages/about/About';
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.min.css'
 
 function App() {
   return (
     <Router>
-      <Navbar />
       <div style={{minHeight: ' 90vh'}} >
       <Routes>
         
@@ -45,7 +47,7 @@ function App() {
 
       </Routes>
       </div>
-      <Footer />
+      <ToastContainer />
     </Router>
   );
 }
