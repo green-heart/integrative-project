@@ -116,7 +116,7 @@ function Login() {
                                 </Box>
                             </Grid>
                             <Grid container justifyContent="flex-end">
-                                <Link id="sign-up" to="/SignUp">
+                                <Link id="sign-up" to="/registeruser">
                                     {"Não possui conta? Cadastre-se"}
                                 </Link>
                             </Grid>

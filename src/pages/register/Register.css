@@ -1,64 +1,86 @@
-    button#color1{
-    color: rgb(43, 42, 42);
-    margin-left: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 15px;
-   
-    }
-    button#color2{
-      border-radius: 15px;
-       color: rgb(43, 42, 42)
+* {
+   margin: 0;
+   border: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
 
-    }
-    a#text{
-       text-decoration: none;
-    }
-    .text2{
-       color: #2b8a46;
-       
-       
-    }
-    
-button {
-   padding: 15px 25px;
-   border: unset;
-   border-radius: 15px;
-   color: #212121;
-   z-index: 1;
-   background: #e8e8e8;
+body {
+   background-image: linear-gradient(180deg, #b4f2a0 0, #a1ec9c 16.67%, #89e397 33.33%, #6cd890 50%, #49cd8a 66.67%, #10c488 83.33%, #00bd88 100%);
+   min-height: 100vh;
+   min-width: 100vw;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+#main {
+   background: white;
+   max-width: 500px;
+   min-height: 45vh;
+   padding: 2rem;
+   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+   border-radius: 8px;
+   margin-top: auto;
+}
+
+#title {
+   color: #fff;
+ font-weight: bold;
+ font-family: Helvetica;
+ text-shadow: 
+   0 1px 0 #ccc, 
+   0 2px 0 #c9c9c9, 
+   0 3px 0 #bbb, 
+   0 4px 0 #b9b9b9, 
+   0 5px 0 #aaa, 
+   0 6px 1px rgba(0,0,0,.1), 
+   0 0 5px rgba(0,0,0,.1), 
+   0 1px 3px rgba(0,0,0,.3), 
+   0 3px 5px rgba(0,0,0,.2), 
+   0 5px 10px rgba(0,0,0,.25), 
+   0 10px 10px rgba(0,0,0,.2), 
+   0 20px 20px rgba(0,0,0,.15);
+}
+
+#subtitle {
+   font-family: 'Roboto', sans-serif;
+   font-weight: 500;
+   margin-bottom: 0.1rem;
    position: relative;
-   font-weight: 1000;
-   font-size: 17px;
-   -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-   box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-   transition: all 250ms;
-   overflow: hidden;
-  }
-  
-  button::before {
-   content: "";
-   position: absolute;
-   top: 0;
-   left: 0;
-   height: 100%;
-   width: 0;
-   border-radius: 15px;
-   background-color: #c8f9cc;
-   z-index: -1;
-   -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-   box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-   transition: all 250ms
-  }
-  
-  button:hover {
-   color: #e8e8e8;
-  }
-  
-  button:hover::before {
-   width: 100%;
-  }
+}
 
-  TextField#ajust{
-   padding-right: 25%;
-  }
+#login_button {
+   color: white;
+   background-color: #10c48c;
+}
+
+@media only screen and (max-device-width: 320px) {
+   #sign-in {
+       font-size: small;
+   }
+
+   #subtitle {
+       font-weight: 600;
+       font-size: 16px;
+       margin-bottom: 0.1rem;
+       position: relative;
+   }
+}
+
+@media only screen and (max-device-width: 375px) {
+   #sign-in {
+       font-size: small;
+   }
+   
+   #title {
+        font-size: 45px;
+   }
+
+   #subtitle {
+       font-weight: 600;
+       font-size: 16px;
+       margin-bottom: 0.1rem;
+       position: relative;
+   }
+}
