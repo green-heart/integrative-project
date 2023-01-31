@@ -60,6 +60,14 @@ body {
        font-size: small;
    }
 
+   #upload {
+      font-size: medium;
+   }
+
+   #title {
+      font-size: 20px;
+   }
+   
    #subtitle {
        font-weight: 600;
        font-size: 16px;

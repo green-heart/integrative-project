@@ -6,9 +6,29 @@ import { register } from '../../services/Service';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { toast } from 'react-toastify';
+import CameraAltIcon from '@mui/icons-material/CameraAlt';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Input from '@mui/material/Input';
+import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
+import './Register.css';
 
 const theme = createTheme();
+
 function Register() {
+
+    const [showPassword, setShowPassword] = React.useState(false);
+
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+    const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+    };
 
     let navigate = useNavigate();
     const [confirmPassword, setConfirmPassword] = useState<string>("")
@@ -18,6 +38,7 @@ function Register() {
         name: '',
         username: '',
         email: '',
+        photo: '',
         password: ''
     })
 
@@ -27,6 +48,7 @@ function Register() {
             name: '',
             username: '',
             email: '',
+            photo: '',
             password: ''
         })
 
@@ -110,19 +132,86 @@ function Register() {
                             </Typography>
                             <Grid container spacing={1}>
                                 <Grid item xs={12} sm={6}>
-                                    <TextField value={user.name} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} required id='name' label='Nome' variant='outlined' name='name' margin='normal' style={{ marginRight: 4 }} />
+                                    <TextField value={user.name} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} required id='name' label='Nome' variant='outlined' name='name' margin='normal' style={{}} />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
-                                    <TextField value={user.username} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} required id='username' label='Username' variant='outlined' name='username' margin='normal' style={{ marginLeft: 4 }} />
+                                    <TextField value={user.username} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} required id='username' label='Nome de Usuário' variant='outlined' name='username' margin='normal' />
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <TextField value={user.email} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} required id='email' label='Email' variant='outlined' name='email' margin='normal' type='email' style={{ width: '100%' }} />
+                                    <Box sx={{ mt:-2 }}>
+                                        <TextField fullWidth value={user.email} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} required id='email' label='Endereço de Email' variant='outlined' name='email' margin='normal' type='email' />
+                                    </Box>
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
-                                    <TextField value={user.password} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} required id='password' label='Senha' variant='outlined' name='password' margin='normal' type='password' style={{ marginRight: 4 }} />
+                                    <FormControl variant="outlined">
+                                        <InputLabel htmlFor="outlined-adornment-password">Senha</InputLabel>
+                                        <OutlinedInput
+                                            value={user.password}
+                                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                                            required
+                                            id="outlined-adornment-password"
+                                            type={showPassword ? 'text' : 'password'}
+                                            endAdornment={
+                                                <InputAdornment position="end">
+                                                    <IconButton
+                                                        aria-label="toggle password visibility"
+                                                        onClick={handleClickShowPassword}
+                                                        onMouseDown={handleMouseDownPassword}
+                                                        edge="end"
+                                                    >
+                                                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                    </IconButton>
+                                                </InputAdornment>
+                                            }
+                                            label="Senha"
+                                            name='password'
+                                        />
+                                    </FormControl>
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
-                                    <TextField value={confirmPassword} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmPasswordHandle(e)} required id='confirmPassword' label='Confirmar' variant='outlined' name='confirmPassword' margin='normal' type='password' style={{ marginLeft: 4 }} />
+                                    <FormControl variant="outlined">
+                                        <InputLabel htmlFor="outlined-adornment-password">Confirmar</InputLabel>
+                                        <OutlinedInput
+                                            value={confirmPassword}
+                                            onChange={(e: ChangeEvent<HTMLInputElement>) => confirmPasswordHandle(e)}
+                                            required
+                                            id="outlined-adornment-password"
+                                            type={showPassword ? 'text' : 'password'}
+                                            endAdornment={
+                                                <InputAdornment position="end">
+                                                    <IconButton
+                                                        aria-label="toggle password visibility"
+                                                        onClick={handleClickShowPassword}
+                                                        onMouseDown={handleMouseDownPassword}
+                                                        edge="end"
+                                                    >
+                                                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                    </IconButton>
+                                                </InputAdornment>
+                                            }
+                                            label="Password"
+                                        />
+                                    </FormControl>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <Box sx={{ mt: 1 }}>
+                                        <TextField
+                                            value={user.photo}
+                                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                                            id="photo"
+                                            label="URL da foto de Perfil"
+                                            fullWidth
+                                            InputProps={{
+                                                startAdornment: (
+                                                    <InputAdornment position="start">
+                                                        <AddAPhotoIcon />
+                                                    </InputAdornment>
+                                                ),
+                                            }}
+                                            variant="standard"
+                                            name="photo"
+                                        />
+                                    </Box>
                                 </Grid>
                             </Grid>
                             <Grid>
@@ -141,14 +230,14 @@ function Register() {
                             </Grid>
                             <Grid container justifyContent="flex-end">
                                 <Link to="/Login" id='sign-in'>
-                                    Já possui conta? Entre
+                                    {"Já possui conta? Entre"}
                                 </Link>
                             </Grid>
                         </form>
                     </Box>
-                </Grid>
+                </Grid >
             </Container>
-        </ThemeProvider>
+        </ThemeProvider >
     );
 }
 
