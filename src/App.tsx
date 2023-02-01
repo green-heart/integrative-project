@@ -30,10 +30,6 @@ function App() {
 
         <Route path="/registeruser" element={<Register />} />
 
-        <Route path="/newPosting" element ={<NewPosting/>} />
-
-        <Route path="/newPosting/:id" element ={<NewPosting/>} />
-
         <Route path="/newTheme/:id" element ={<NewTheme/>} />
 
         <Route path="/deletePosting/:id" element ={<DeletePosting/>} />
