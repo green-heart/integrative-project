@@ -50,13 +50,6 @@ export class ThemeService {
         })
     }
 
-    async findByTypes (types: string): Promise <Theme []> {
-        return await this.themeRepository.find({
-            where: {types: ILike(`%${types}%`)},
-            relations: {posting: true}
-        })
-    }
-
 /**
  * @desc Create a theme
  * @param id will be auto_increment

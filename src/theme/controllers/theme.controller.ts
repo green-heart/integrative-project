@@ -9,13 +9,13 @@ import { ThemeService } from "../service/theme.service";
 @UseGuards (JwtAuthGuard)
 @Controller ('/theme')
 @ApiBearerAuth()
-export class ThemeController{
+export class ThemeController {
     constructor (private readonly themeService: ThemeService) { }
 
-    @Get ('/theme/all')
+    @Get ('/all')
     @HttpCode (HttpStatus.OK)
     findAll (): Promise <Theme []> {
-        return this.themeService.findAll();
+        return this.themeService.findAll ();
     }
 
     @Get ('/:id')
@@ -24,7 +24,7 @@ export class ThemeController{
         return this.themeService.findById (id)
     }
 
-    @Get ('/classfication/:classfication')
+    @Get ('/classfication/:classfication')  
     @HttpCode (HttpStatus.OK)
     findByClassification (@Param ('classfication') classfication: string): Promise <Theme []> { 
         return this.themeService.findByClassification (classfication);

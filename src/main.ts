@@ -8,8 +8,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
     const config = new DocumentBuilder()
-    .setTitle ('integrative-project') 
-    .setDescription ('Project integrative-project')
+    .setTitle ('Green Heart') 
+    .setDescription ('Integrative project at Generation Brazil about SDG 13 (Climate Action).')
     .setContact ("Generation Brasil", "http://www.generationbrasil.online","generationprojeto@gmail.com")
     .setVersion ('1.0')
     .addBearerAuth()
