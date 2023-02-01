@@ -21,6 +21,7 @@ import { TokenState } from '../../../store/tokens/tokensReducer';
 import { addToken } from '../../../store/tokens/actions';
 import './Navbar.css';
 import { makeStyles } from '@material-ui/core';
+import useLocalStorage from 'react-use-localstorage';
 
 
 
@@ -80,9 +81,11 @@ function Navbar() {
     (state) => state.tokens
   )
 
+  const [username, setUsername] = useLocalStorage('username'); 
+
   function goLogout() {
     console.log('a');
-
+    setUsername ('');
     dispatch(addToken(''));
     alert('Usuário deslogado');
     navigate('/login');

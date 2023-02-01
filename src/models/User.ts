@@ -5,6 +5,7 @@ interface User{
     email: string;
     photo: string;
     password: string;
+    token?: string | null;
 }
 
 export default User;
