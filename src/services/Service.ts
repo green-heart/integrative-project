@@ -3,8 +3,8 @@ import Login from '../models/SignIn';
 import { Dispatch, SetStateAction } from 'react';
 
 export const api = axios.create({
-    //baseURL: 'http://localhost:4000'
-    baseURL: 'https://green-heart.onrender.com'
+    baseURL: 'http://localhost:4000'
+    //baseURL: 'https://green-heart.onrender.com'
 })
 
 export const register = async (url: string, data: {
@@ -25,6 +25,15 @@ export const login = async (url: string, data: {
     setData: React.Dispatch<React.SetStateAction<string>>) => {
     const response = await api.post(url, data)
     setData(response.data.token)
+}
+
+export const saveUsername = async (url: string, dados: {username: string, password: string}, setDado: React.Dispatch<string>) => {
+	try{
+	const answer = await api.post(url, dados)
+	setDado(answer.data.username)
+	}catch(error){
+		console.log(`Algo deu errado, tente novamente ` + error)
+	}
 }
 
 export const search = async (url: string, setData: any, header: any) => {

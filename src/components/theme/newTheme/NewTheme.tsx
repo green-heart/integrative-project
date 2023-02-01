@@ -15,8 +15,7 @@ function NewTheme(){
     );
     const [theme, setTheme] = useState<Theme>({
         id: 0,
-        classification: '',
-        types: ''
+        classification: ''
     })
 
     useEffect(() => {
@@ -108,7 +107,6 @@ function NewTheme(){
         <form onSubmit={onSubmit}>
             <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro tema</Typography>
             <TextField value={theme.classification} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTheme(e)} id="classification" label="classification" variant="outlined" name="classification" margin="normal" fullWidth />
-            <TextField value={theme.types} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTheme(e)} id="types" label="types" variant="outlined" name="types" margin="normal" fullWidth />
             <Button type="submit" variant="contained" color="primary">
                 Finalizar
             </Button>

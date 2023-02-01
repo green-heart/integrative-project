@@ -1,21 +1,74 @@
-.img {
-    height: 1000px;
-    }
+
+
+#body {
+  background-image: linear-gradient(180deg, #b4f2a0 0, #a1ec9c 16.67%, #89e397 33.33%, #6cd890 50%, #49cd8a 66.67%, #10c488 83.33%, #00bd88 100%);
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  
+  .tab5 {
     
-    .tab5 {
-      
-      font-family: Arial, Helvetica, sans-serif;
-        text-indent: 1em;
-    }
-    .text {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, cursive;;
+      text-indent: 1em;
+  }
+  .text {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  #title1 {
+      color: rgb(8, 255, 90);
+      font-weight: bold;
+      font-family: Helvetica;
+      text-shadow: 
+      0 1px 0 #ccc, 
+      0 2px 0 #c9c9c9, 
+      0 3px 0 #bbb, 
+      0 4px 0 #b9b9b9, 
+      0 5px 0 #aaa, 
+      0 6px 1px rgba(0, 0, 0, 0.1), 
+      0 0 5px rgba(0,0,0,.1), 
+      0 1px 3px rgba(0,0,0,.3), 
+      0 3px 5px rgba(0,0,0,.2), 
+      0 5px 10px rgba(0,0,0,.25), 
+      0 10px 10px rgba(0,0,0,.2), 
+      0 20px 20px rgba(0,0,0,.15);
+  }
+
+  #colour {
+    color: rgb(5, 46, 8);
+    font-weight: bold;
+    font-family: Helvetica;
+    text-shadow: 
+    0 1px 0 #ccc, 
+    0 2px 0 #c9c9c9, 
+    0 3px 0 #bbb, 
+    0 4px 0 #b9b9b9, 
+    0 5px 0 #aaa, 
+    0 6px 1px rgba(8, 0, 0, 0.1), 
+    0 0 5px rgba(8, 0, 0, 0.1), 
+    0 1px 3px rgba(8, 0, 0, 0.1), 
+    0 3px 5px rgba(8, 0, 0, 0.1), 
+    0 5px 10px rgba(8, 0, 0, 0.1), 
+    0 10px 10px rgba(8, 0, 0, 0.1), 
+    0 20px 20px rgba(8, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     
+}
+
+@media only screen and (min-width: 768px) {
+  #colour {
+    flex-direction: row;
+  }
+  
+  #text {
+      size: 50px;
       
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    }
-    
-    .titulo {
-      
-      color: #2b8a46;
-      font-style: oblique;
-      font-family: fantasy;
-    }
+  }
+}

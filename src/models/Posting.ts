@@ -1,5 +1,5 @@
-import Login from './SignIn';
 import Theme from './Theme'
+import User from './User';
 
 interface Posting {
     id: number,
@@ -8,7 +8,7 @@ interface Posting {
     location: string,
     date: Date,
     theme?: Theme | null,
-    user?: Login | null
+    user?: User | null
 }
 
 export default Posting;

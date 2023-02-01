@@ -6,17 +6,63 @@ import { toast } from "react-toastify";
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import Theme from '../../../models/Theme';
 import { post, put, search, searchById } from '../../../services/Service';
-import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText } from "@material-ui/core";
+import { Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText } from "@material-ui/core";
+import User from '../../../models/User';
+import useLocalStorage from 'react-use-localstorage';
+import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
+import InputAdornment from '@mui/material/InputAdornment';
+import { Container } from './styles';
+
 
 function NewPosting() {
 
+    const [users, setUsers] = useState<User[]>([]);
+    const [user, setUser] = useState<User>({
+        id: 0,
+        name: '',
+        username: '',
+        password: '',
+        email: '',
+        photo: '',
+        token: null
+    });
+
+    const [username, setUsername] = useLocalStorage('username');
+
+    useEffect(() => {
+        if (!users.length) {
+            getUsers();
+        }
+        else if (!user.username) {
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].username == username) {
+                    setUser(users[i])
+                    break;
+                }
+            }
+        }
+    });
+
+    useEffect(() => {
+        getUsers();
+    }, [username])
+
+    const token = useSelector<TokenState, TokenState['tokens']>(
+        (state) => state.tokens
+    )
+
+    async function getUsers() {
+        await search('/users/all', setUsers, {
+            headers: {
+                Authorization: token
+            }
+        })
+    }
 
     let navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
     const [themes, setThemes] = useState<Theme[]>([]);
-    const token = useSelector<TokenState, TokenState['tokens']>(
-        (state) => state.tokens
-    )
+
 
     useEffect(() => {
         if (token == "") {
@@ -27,8 +73,7 @@ function NewPosting() {
 
     const [theme, setTheme] = useState<Theme>({
         id: 0,
-        classification: "",
-        types: "",
+        classification: ''
     })
 
     const [posting, setPosting] = useState<Posting>({
@@ -38,9 +83,7 @@ function NewPosting() {
         location: "",
         date: new Date(),
         theme: null,
-        user: null,
-
-
+        user: null
     })
 
     useEffect(() => {
@@ -58,7 +101,7 @@ function NewPosting() {
     }, [id])
 
     async function getThemes() {
-        await search(`/theme/theme/all`, setThemes, {
+        await search(`/theme/all`, setThemes, {
             headers: {
                 Authorization: token
             }
@@ -107,17 +150,51 @@ function NewPosting() {
     }
 
     return (
-        <Container maxWidth="sm" className="topo">
+        <Container>
+            <div className="profile-cover"></div>
+                <img
+                    src="https://w7.pngwing.com/pngs/524/676/png-transparent-computer-icons-user-my-account-icon-cdr-eps-rim.png"
+                    alt="Avatar"
+                    className="profile-picture"
+                />
+                <Typography variant="h1" color="initial">
+                    @{user.username}
+                </Typography>         
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Nova Postagem</Typography>
-                <TextField value={posting.text} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPosting(e)} id="titulo" label="titulo" variant="outlined" name="text" margin="normal" fullWidth />
-
+                 <TextField
+                    value={posting.text}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPosting(e)}
+                    id="titulo"
+                    label="Digite sua publicação 💚"
+                    variant="outlined"
+                    name="text"
+                    margin="normal"
+                    fullWidth
+                    placeholder="Placeholder"
+                    multiline
+                />
+                <TextField
+                    value={posting.image}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPosting(e)}
+                    id="image"
+                    label="Adicione uma imagem para sua publicação"
+                    fullWidth
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <AddAPhotoIcon />
+                            </InputAdornment>
+                        ),
+                    }}
+                    variant="standard"
+                    name="image"
+                />
                 <FormControl >
                     <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
-
                     <Select
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
+                        required
                         onChange={(e) => searchById(`/theme/${e.target.value}`, setTheme, {
                             headers: {
                                 'Authorization': token
@@ -138,6 +215,4 @@ function NewPosting() {
         </Container>
     )
 }
-
 export default NewPosting;
-
