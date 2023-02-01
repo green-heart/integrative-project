@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Posting from '../../../models/Posting';
 import { search } from '../../../services/Service'
@@ -24,8 +24,8 @@ import Panel from '../../panel';
 import useLocalStorage from 'react-use-localstorage';
 import User from '../../../models/User';
 
-const FeedPost: React.FC = () => {
-
+function FeedPost (props: {postings: Posting[], setPosts: Dispatch<SetStateAction<Posting[]>>}) {
+  const {postings, setPosts} = props;
   const [users, setUsers] = useState<User[]>([]);
   const [user, setUser] = useState<User>({
     id: 0,
@@ -66,7 +66,6 @@ const FeedPost: React.FC = () => {
     })
   }
 
-  const [postings, setPosts] = useState<Posting[]>([])
   let navigate = useNavigate();
 
   const token = useSelector<TokenState, TokenState["tokens"]>(

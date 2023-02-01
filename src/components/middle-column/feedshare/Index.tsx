@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 
 import {
   Container,
@@ -14,8 +14,9 @@ import Typography from '@mui/material/Typography'
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import NewPosting from '../../post/newPosting/NewPosting';
+import Posting from '../../../models/Posting';
 
-const FeedShare: React.FC = () => {
+function FeedShare (props: {postings: Posting[], setPosts: Dispatch<SetStateAction<Posting[]>>}) {
 
   const style = {
     position: 'absolute' as 'absolute',
@@ -46,25 +47,25 @@ const FeedShare: React.FC = () => {
               aria-describedby="modal-modal-description"
             >
               <Box sx={style}>               
-                  <NewPosting />
+                  <NewPosting postings={props.postings} setPosts={props.setPosts} />
               </Box>
             </Modal>
           </Button>
         </div>
         <div className="attachment">
-          <button>
+          <button onClick={handleOpen}>
             <CameraIcon />
             Foto
           </button>
-          <button>
+          <button onClick={handleOpen}>
             <VideoCameraIcon />
             Video
           </button>
-          <button>
+          <button onClick={handleOpen}>
             <DocumentIcon />
             Documento
           </button>
-          <button>
+          <button onClick={handleOpen}>
             <ArticleIcon />
             Escrever artigo
           </button>

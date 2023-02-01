@@ -1,20 +1,25 @@
 import Posting from '../../../models/Posting';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from "react-router-dom";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import Theme from '../../../models/Theme';
 import { post, put, search, searchById } from '../../../services/Service';
-import { Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText } from "@material-ui/core";
+import { Typography, TextField, Select, InputLabel, MenuItem, FormControl, FormHelperText } from "@material-ui/core";
 import User from '../../../models/User';
 import useLocalStorage from 'react-use-localstorage';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import InputAdornment from '@mui/material/InputAdornment';
 import { Container } from './styles';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import SendIcon from '@mui/icons-material/Send';
+import Button from '@mui/material/Button';
 
 
-function NewPosting() {
+
+function NewPosting(props: {postings: Posting[], setPosts: Dispatch<SetStateAction<Posting[]>>}) {
 
     const [users, setUsers] = useState<User[]>([]);
     const [user, setUser] = useState<User>({
@@ -140,28 +145,38 @@ function NewPosting() {
                     'Authorization': token
                 }
             })
-            alert("Postagem criada");
-            back();
+            props.setPosts([...props.postings, posting])
+            toast.success('Postagem criada!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+            goHome();
         }
     }
 
-    function back() {
+    function goHome() {
         navigate('/home')
     }
 
     return (
         <Container>
             <div className="profile-cover"></div>
-                <img
-                    src="https://w7.pngwing.com/pngs/524/676/png-transparent-computer-icons-user-my-account-icon-cdr-eps-rim.png"
-                    alt="Avatar"
-                    className="profile-picture"
-                />
-                <Typography variant="h1" color="initial">
-                    @{user.username}
-                </Typography>         
+            <img
+                src="https://w7.pngwing.com/pngs/524/676/png-transparent-computer-icons-user-my-account-icon-cdr-eps-rim.png"
+                alt="Avatar"
+                className="profile-picture"
+            />
+            <Typography variant="h1" color="initial">
+                @{user.username}
+            </Typography>
             <form onSubmit={onSubmit}>
-                 <TextField
+                <TextField
                     value={posting.text}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPosting(e)}
                     id="titulo"
@@ -189,28 +204,28 @@ function NewPosting() {
                     variant="standard"
                     name="image"
                 />
-                <FormControl >
-                    <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
-                    <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        required
-                        onChange={(e) => searchById(`/theme/${e.target.value}`, setTheme, {
-                            headers: {
-                                'Authorization': token
+                    <FormControl >
+                        <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
+                        <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                            required
+                            onChange={(e) => searchById(`/theme/${e.target.value}`, setTheme, {
+                                headers: {
+                                    'Authorization': token
+                                }
+                            })}>
+                            {
+                                themes.map(theme => (
+                                    <MenuItem value={theme.id}>{theme.classification}</MenuItem>
+                                ))
                             }
-                        })}>
-                        {
-                            themes.map(theme => (
-                                <MenuItem value={theme.id}>{theme.classification}</MenuItem>
-                            ))
-                        }
-                    </Select>
-                    <FormHelperText>Escolha um tema para a posting</FormHelperText>
-                </FormControl>
-                <Button type="submit" variant="contained" style={{ paddingLeft: 10 }}>
-                    Finalizar
-                </Button>
+                        </Select>
+                        <FormHelperText>Escolha um tema para a posting</FormHelperText>
+                    </FormControl>
+                    <Button type="submit" variant="contained" color="success" endIcon={<SendIcon />} style={{ margin: 20 }}>
+                        Send
+                    </Button>
             </form>
         </Container>
     )
