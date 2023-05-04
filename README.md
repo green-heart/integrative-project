@@ -1,46 +1,166 @@
-# Getting Started with Create React App
+# 💚 Green Heart
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<a href="https://green-heart.onrender.com">
+<img src="https://github.com/green-heart/.github/blob/main/profile/images/Green%20heart.png?raw=true" title="project apresentation">
+</a>
 
-## Available Scripts
+## 💬 Description 
 
-In the project directory, you can run:
+Our project is based on the [United Nations](https://sdgs.un.org/goals)' [Sustainable Development Goal 13](https://sdgs.un.org/goals/goal13) (Climate Action).
 
-### `npm start`
+The Green Heart Project consists of a social network with the objective of mobilizing people engaged in the fight against climate change to organize themselves in a single platform focused on the care of the planet.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 👨‍🎓 About us 👩‍🎓
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+We are participants of [Programadores Cariocas](https://www.eduardopaes.com.br/programadores-cariocas-inscricoes-abertas-para-jovens-de-17-a-29-anos-no-programa-da-prefeitura-do-rio/) project. a program by the city of Rio de Janeiro that seeks young people in economic vulnerability to teach them how to take their first steps in a developer career. From this program we were able to participate in the fullstack javascript bootcamp at [Generation Brazil](https://brazil.generation.org/), which gave us the knowledge and possible tools to develop this project.
 
-### `npm test`
+## 👨‍💻 How to use
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🌐 [Network Aplication](https://green-heart.onrender.com/)
 
-### `npm run build`
+### 📑 [API Documentation](https://green-heart.onrender.com/swagger) 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🖥️ Local Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### install dependencies
+```bash
+$ npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Create database
 
-### `npm run eject`
+```mysql
+# remember to change import database the postgres for mysql
+$ create databade db_green_heart;
+```
+#### Running the app
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+# watch mode
+$ npm run start:dev
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 💻 Technologies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=javascript,typescript,html,css,git,github,nodejs,express,nest,mysql,react,figma,vscode " />
+</a>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 🎓 Project Members
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/Anttonino"><img src="https://avatars.githubusercontent.com/u/99145534?v=4" width=220px;>
+       </a>  
+        <br>
+        <b>Victor<br>Antonino</b>
+      <br>
+      <sub>
+          <a href="https://www.linkedin.com/in/victor-antonino/">
+      <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
+          </a>
+          <br>
+       <a href="https://github.com/Anttonino">
+      <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+          </a>
+      </sub>    
+    </td>
+    <td align="center">
+      <a href="https://github.com/alexsandermog"> <img src="https://avatars.githubusercontent.com/u/79030781?v=4" width=200px;> 
+             </a>
+          <br>
+          <b>Alexsander<br>Machado</b>
+      <br>
+        <sub>
+            <a href="[https://github.com/alexsandermog](https://www.linkedin.com/in/alexsander-machado01?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_project_creator%3BQUA33yIeTGq6g2PzTt8KYw%3D%3D)">
+          <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
+            </a>
+                <br>
+            <a href="https://github.com/alexsandermog">
+           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+            </a>
+                </sub> 
+    </td>
+        <td align="center">
+      <a href="https://github.com/DaniNasciment"> <img src="https://avatars.githubusercontent.com/u/112710222?v=4" width="200px;"> 
+             </a>
+          <br>
+          <b>Daniela<br>Nascimento</b>
+      <br>
+        <sub>
+            <a href="https://github.com/DaniNasciment"> 
+          <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
+            </a>
+                <br>
+                <a href="https://www.linkedin.com/in/daniela-nascimento-528a531ab?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_project_creator%3BWoJEfi5RTtGwPmMtvrLfaw%3D%3D"> 
+           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+            </a>
+                    </sub> 
+    </td>
+     <td align="center">
+      <a href="https://github.com/Popdollss"> <img src="https://avatars.githubusercontent.com/u/112709048?v=4" width="260px;"> 
+              </a>
+          <br>
+          <b>Roseane<br>Melo</b>
+      <br>
+        <sub>
+            <a href="https://www.linkedin.com/in/roseane-carreiro-de-melo-45a504206?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_project_creator%3BWoJEfi5RTtGwPmMtvrLfaw%3D%3D">
+          <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
+            </a>
+           <br>
+            <a href="https://github.com/Popdollss">
+           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+            </a>
+                </sub> 
+    </td>
+         <td align="center">
+      <a href="https://github.com/ArthurMFarias0"> <img src="https://avatars.githubusercontent.com/u/112709178?v=4" width="300px;"> 
+              </a>
+          <br>
+          <b>Arthur<br>Farias</b>
+      <br>
+        <sub>
+            <a href="https://www.linkedin.com/in/arthur-marques-farias-4b42b5182?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_project_creator%3B3Kdw8sjdRXW9Lu7tXxVgtw%3D%3D" >
+          <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
+            </a>
+                <br>
+             <a href="https://github.com/ArthurMFarias0">
+           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+            </a>
+                 </sub> 
+    </td>
+         <td align="center">
+      <a href="https://github.com/JoaoVictorCSousa"> <img src="https://avatars.githubusercontent.com/u/112873437?v=4" width="270px;"> 
+              </a>
+          <br>
+          <b>João Victor<br>Carvalho</b>
+      <br>
+        <sub>
+            <a href="https://www.linkedin.com/in/joaovicarvalho?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_project_creator%3B3Kdw8sjdRXW9Lu7tXxVgtw%3D%3D">
+          <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
+            </a>
+           <br>
+            <a href="https://github.com/JoaoVictorCSousa">
+           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+            </a>
+         </sub> 
+    </td>
+         <td align="center">
+      <a href="https://github.com/KaiqueBourguignon"> <img src="https://avatars.githubusercontent.com/u/112709239?v=4" width="200px;"> 
+        </a>
+          <br>
+          <b>Kaique<br>Bourguignon </b>
+      <br>
+        <sub>
+            <a href="https://www.linkedin.com/in/kaique213?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_project_creator%3B3Kdw8sjdRXW9Lu7tXxVgtw%3D%3D">
+          <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
+            </a>
+           <br>
+            <a href="https://github.com/KaiqueBourguignon">
+           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+               </a>
+         </sub> 
+    </td>
+  </tr> 
+</table>
